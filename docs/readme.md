@@ -21,7 +21,7 @@ _**Program flow:**_
 ![](assets/img/anthro_emis.png)
 
 ## Contents
-* [WRF Preprocessing System - WPS](wps.md)
+* [WRF Preprocessing System (WPS)](wps.md)
 * [Weather Research and Forecasting Model - WRF](wrf.md)
 * [Getting familiar with WRF-Chem](wrf-chem.md)
 * [Sparse Matrix Operator Kernel - SMOKE](smoke.md)
