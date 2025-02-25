@@ -27,6 +27,6 @@ _**Program flow:**_
 * [Sparse Matrix Operator Kernel - SMOKE](smoke.md)
 * [WRF-PartMC](wrf-partmc.md)
 * [Troubleshooting](troubleshooting.md)
-* [Additional Resources](resources.md)
+* [Resources](resources.md)
 
 ## Installation Guide

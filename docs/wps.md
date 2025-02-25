@@ -1,9 +1,11 @@
 # WRF Preprocessing System - WPS
 
 ## **Ungrib** (unpacks GRIB meteorological data and packs it into an _intermediate file_ format)
-> 🔔 Ungrib is *NOT* dependent on any WRF model domain.
-> 🔔 Ungrib is *NOT* dependent on Geogrid.
-1. Download the GRIB data and place in a unique directory (more details in [Additional Resources](resources.md))
+🔔 Ungrib is *NOT* dependent on any WRF model domain.
+
+🔔 Ungrib is *NOT* dependent on Geogrid.
+
+1. Download the GRIB data and place in a unique directory (more details in [Resources](resources.md))
 2. Link the GFS Table (`Vtable`)
 ```
 ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
@@ -14,29 +16,36 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ```
 4. Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of 
 the `namelist.wps` file for your domain setup.
-    > 🔔 You only need to pay attention to the following parameters:
-    >   * `start_date` | `end_date` | `interval_seconds`
+🔔 You only need to pay attention to the following parameters:
+`start_date` | `end_date` | `interval_seconds`
 5. Run `ungrid.exe` to create intermediate files
-    > ✅ CHECK: Output will be in the format of `FILE:YYYY-MM-DD_hh`.
+
+```./ungrid.exe```
+
+✅ CHECK: Output will be in the format of `FILE:YYYY-MM-DD_hh`.
 
 ## **Geogrid** (creates _terrestrial data_ from static geographic data)
-1. Download the terrestrial data (more details in [Additional Resources](resources.md))
+1. Download the terrestrial data (more details in [Resources](resources.md))
 2. Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections 
 of the `namelist.wps` file for your domain setup.
-    > 💡 Use `plotgrids.ncl` to ensure your domain is in the right location before running `geogrid.exe`
+🔔 Use `plotgrids.ncl` to ensure your domain is in the right location before running `geogrid.exe`
 ``` ncl util/plotgrids.ncl ```
 3. Run `geogrid.exe`
+
 ```./geogrid.exe```
-    > ✅ CHECK: Output will be in the format of `geo_em.d<nn>.nc`.
+
+✅ CHECK: Output will be in the format of `geo_em.d<nn>.nc`.
 
 
 ## **Metgrid** (interpolates the _meteorological data_ horizontally onto your model domain)
-> 💡 Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
+💡 Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
 1. Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of 
 the `namelist.wps` file for your domain setup.
 2. Run `metgrid.exe`
+
 ```./metgrid.exe```
-    > ✅ CHECK: Output will be in the format of `met_em.d<nn>.YYYY-MM-DD_hh:00:00.nc`.
+
+✅ CHECK: Output will be in the format of `met_em.d<nn>.YYYY-MM-DD_hh:00:00.nc`.
 
 ## An example of `namelist.wps`
 ```
