@@ -12,7 +12,8 @@ The WRF Preprocessing System (WPS) consists of three components:
 * _Ungrib is *NOT* dependent on any WRF model domain._
 * _Ungrib is *NOT* dependent on Geogrid._
 
-<ins> _Steps to run UNGRIB_ </ins>
+<ins> **_Steps to run UNGRIB_** </ins>
+
 **1.** Download the GRIB data and place in a unique directory (details in [Resources](resources.md))
 
 **2.** Link the GFS Table (`Vtable`)
@@ -39,7 +40,8 @@ the `namelist.wps` file for your domain setup.
 
 ## **Geogrid** 
 
-<ins> _Steps to run GEOGRID_ </ins>
+<ins> **_Steps to run GEOGRID_** </ins>
+
 1. Download the terrestrial data (details in [Resources](resources.md))
 
 2. Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections 
@@ -61,7 +63,8 @@ of the `namelist.wps` file for your domain setup.
 📌 Notes:
 * Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
 
-<ins> _Steps to run METGRID_ </ins>
+<ins> **_Steps to run METGRID_** </ins>
+
 1. Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of 
 the `namelist.wps` file for your domain setup.
 2. Run `metgrid.exe`
