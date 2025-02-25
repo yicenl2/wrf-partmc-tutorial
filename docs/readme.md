@@ -8,15 +8,14 @@ atmospheric aerosol simulation). A scientific overview of WRF-PartMC is in
 [Curtis et al. (2024)](https://egusphere.copernicus.org/preprints/2024/egusphere-2024-825/).
 
 ## Getting Started
-* If you are new to WRF-PartMC, start by setting up the necessary dependencies and compiling the model. 
-Head over to the [Installation Guide](#installation-guide) to get started.
+* **New to WRF/WRF-PartMC?** Start by setting up the required dependencies and compiling the model. 
+For detailed instructions, head over to the [Installation Guide](#installation-guide) to get started.
 
-* If you have successfully installed and compiled the model, 🎉 congradulations! You're now 
-ready to start working with WRF-PartMC. We highly recommend 
+* **Already installed and compiled?** 🎉 Congradulations! You're now 
+ready to dive into WRF-PartMC. We highly recommend 
 exploring the [WRF-ARW Online Tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/index.php) 
 provided by NCAR to understand the fundamentals of WRF model setup and configuration. Alternatively, you can 
-check out the [WRF Section](wrf.md) for a concise guide on its 
-key components and functionality. 
+explore the sections below for a concise guide on its key components and functionality. 
 
 _**Program flow:**_
 ![](assets/img/anthro_emis.png)
@@ -27,7 +26,7 @@ _**Program flow:**_
 * [Getting familiar with WRF-Chem](wrf-chem.md)
 * [Sparse Matrix Operator Kernel - SMOKE](smoke.md)
 * [WRF-PartMC](wrf-partmc.md)
-* [Other Resources](resources.md)
-* [Troubleshooting and Best Practices](troubleshooting.md)
+* [Troubleshooting](troubleshooting.md)
+* [Additional Resources](resources.md)
 
 ## Installation Guide
