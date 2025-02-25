@@ -11,7 +11,7 @@ atmospheric aerosol simulation). A scientific overview of WRF-PartMC is in
 * If you are new to WRF-PartMC, start by setting up the necessary dependencies and compiling the model. 
 Head over to the [Installation Guide](#installation-guide) to get started.
 
-* If you have successfully installed and compiled the model, U+1F389 congradulations! You're now 
+* If you have successfully installed and compiled the model, 🎉 congradulations! You're now 
 ready to start working with WRF-PartMC. We highly recommend 
 exploring the [WRF-ARW Online Tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/index.php) 
 provided by NCAR to understand the fundamentals of WRF model setup and configuration. Alternatively, you can 

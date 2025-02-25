@@ -56,7 +56,7 @@ ln -sf ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_2017-07-* .
 * kemit = 1
 * emi_inname = "wrfchemi_d<domain>_<date>"
 * auxinput5_interval_m = 60
-* frames_per_auxinput5 = 1 U+203C Must have
+* frames_per_auxinput5 = 1 ❗ Must have
 ```
 
 For debugging purpose, turn off these processes (set to 0):

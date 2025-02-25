@@ -16,7 +16,7 @@ cp _[path_to_wps_directory]_/met_em.d01.2022-07-0* .
 can be found [here](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/namelist_variables.html).
  
 4. Run `real.exe` (verify that the program runs correctly)
-U+203C _Verify that the program runs correctly:_
+❗ _Verify that the program runs correctly:_
 You should have the following output files: 
 * `wrfinput_d01` - Initial condition file
 * `wrfbdy_d01` - Boundary condition file
@@ -27,7 +27,7 @@ mpirun -np 4 ./real.exe
 ```
 
 5. Run `wrf.exe` (verify that the program runs correctly)
-U+203C _Verify that the program runs correctly:_
+❗ _Verify that the program runs correctly:_
 You should have the output files: `wrfout_dxx_[initial_date]`
 
 ## Debug
