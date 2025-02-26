@@ -314,13 +314,13 @@ cp ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_* .
  io_style_emissions                  = 2,
  emiss_inpt_opt                      = 1,
  emiss_opt                           = 3,
- emi_inname 												 = "wrfchemi_d<domain>_<date>",
+ emi_inname 		             = "wrfchemi_d<domain>_<date>",
  chem_in_opt                         = 1,
  phot_opt                            = 1,
  gas_drydep_opt                      = 0,
  aer_drydep_opt                      = 0,
  bio_emiss_opt                       = 3,
- ne_area														 = 241,
+ ne_area			     = 241,
  dust_opt                            = 0,
  dmsemis_opt                         = 0,
  seas_opt                            = 0,
@@ -333,7 +333,7 @@ cp ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_* .
  wetscav_onoff                       = 0,
  cldchem_onoff                       = 0,
  vertmix_onoff                       = 1,
- chem_conv_tr											   = 0,
+ chem_conv_tr			     = 0,
  biomass_burn_opt                    = 0,
  plumerisefire_frq                   = 180,
  aer_ra_feedback                     = 0,
@@ -349,4 +349,5 @@ cp ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_* .
 
 ---
 [⬆️ Back to Top](#overview)
+
 [⏪ Return to Home](readme.md)
