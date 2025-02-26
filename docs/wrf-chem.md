@@ -217,9 +217,9 @@ cp ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_* .
  io_form_boundary                    = 2,
  debug_level                         = 100,
  auxinput1_inname                    = "met_em.d<domain>.<date>",
- frames_per_auxinput5 				 = 1,
- auxinput5_interval_m 				 = 60,
- io_form_auxinput5					 = 2,
+ frames_per_auxinput5 	             = 1,
+ auxinput5_interval_m 		     = 60,
+ io_form_auxinput5		     = 2,
  /
 
  &domains
