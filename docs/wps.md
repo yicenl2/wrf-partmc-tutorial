@@ -8,15 +8,8 @@ The WRF Preprocessing System (WPS) consists of three components:
 * [**Metgrid**](#metgrid) - Interpolates the meteorological data onto the model domain.
 
 ## **Ungrib**
-<div style="border-left: 5px solid #FF9800; background: #FFF3E0; padding: 10px; border-radius: 5px;">
-    <strong style="color: #FF9800;">NOTE</strong>
-    <ul style="font-size: 14px; margin-top: 0; padding-left: 20px;">
-        <li><em>Ungrib is NOT dependent on any WRF model domain.</em></li>
-        <li><em>Ungrib is NOT dependent on Geogrid.</em></li>
-    </ul>
-</div>
 
-<ins> **_Steps to run UNGRIB_** </ins>
+<ins style='font-size: 20px'>**Steps to run UNGRIB**</ins>
 
 **1.** Download the GRIB data and place in a unique directory (details in [Resources](resources.md))
 
@@ -30,78 +23,58 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./link_grib.csh ../data/hrrr_01/hrrr
 ```
 
-**4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of 
-the `namelist.wps` file for your domain setup.
-> 💡 Tip: You only need to pay attention to the following parameters:
-> * `start_date`
-> * `end_date`
-> * `interval_seconds`
+**4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of the `namelist.wps` file for your domain setup.
+
+✨ TIP: You only need to pay attention to the following parameters:
+* `start_date`
+* `end_date`
+* `interval_seconds`
 
 **5.** Run `ungrid.exe` to create intermediate files
 ```shell
 ./ungrid.exe
 ```
 
-<div style="border-left: 5px solid #28a745; background: #eafaf1; padding: 10px; border-radius: 5px;">
-    <strong style="color: #28a745;">CHECK</strong>
-    <ul style="font-size: 14px; margin-top: 0; padding-left: 20px;">
-        <li><em>Output will be in the format of <code>FILE:YYYY-MM-DD_hh</code>.</em></li>
-    </ul>
-</div>
+✅ CHECK: Output will be in the format of `FILE:YYYY-MM-DD_hh`.
+
 
 ## **Geogrid** 
 
-<ins> **_Steps to run GEOGRID_** </ins>
+<ins style='font-size: 20px'>**Steps to run GEOGRID**</ins>
 
 **1.** Download the terrestrial data (details in [Resources](resources.md))
 
-**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections 
-of the `namelist.wps` file for your domain setup.
-> 💡 Tip: Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location before running `geogrid.exe`.
+**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections of the `namelist.wps` file for your domain setup.
+
+✨ TIP: Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location.
 
 **3.** Run `geogrid.exe`
 ```shell
 ./geogrid.exe
 ```
 
-<div style="border-left: 5px solid #28a745; background: #eafaf1; padding: 10px; border-radius: 5px;">
-    <strong style="color: #28a745;">CHECK</strong>
-    <ul style="font-size: 14px; margin-top: 0; padding-left: 20px;">
-        <li><em>Output will be in the format of <code>geo_em.d&lt;nn&gt;.nc</code>.</em></li>
-    </ul>
-</div>
-
+✅ CHECK: Output will be in the format of `geo_em.d<nn>.nc`.
 
 
 ## **Metgrid** 
-<div style="border-left: 5px solid #FF9800; background: #FFF8E1; padding: 15px 20px; border-radius: 5px; margin-bottom: 15px;">
-  <strong style="color: #FF9800; font-size: 18px; display: block; margin-bottom: 10px;">NOTE</strong>  
-  <ul style="font-size: 14px; margin-top: 0; padding-left: 20px;">
-    <li>Input to Metgrid is the <code>geo_em.d&lt;nn&gt;.nc</code> and <code>FILE:YYYY-MM-DD_hh</code>.</li>
-  </ul>
-</div>
+
+📝 NOTE: Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
 
 
-<ins> **_Steps to run METGRID_** </ins>
+<ins style='font-size: 20px'>**Steps to run METGRID**</ins>
 
-**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of 
-the `namelist.wps` file for your domain setup.
+**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of the `namelist.wps` file for your domain setup.
 
 **2.** Run `metgrid.exe`
 ```shell
 ./metgrid.exe
 ```
 
-<div style="border-left: 5px solid #28a745; background: #eafaf1; padding: 10px; border-radius: 5px;">
-    <strong style="color: #28a745;">CHECK</strong>
-    <ul style="font-size: 14px; margin-top: 0; padding-left: 20px;">
-        <li><em>Output will be in the format of <code>met_em.d&lt;nn&gt;.YYYY-MM-DD_hh:00:00.nc</code>.</em></li>
-    </ul>
-</div>
+✅ CHECK: Output will be in the format of `met_em.d<nn>YYYY-MM-DD_hh:00:00.nc`.
 
 
 ## An example of `namelist.wps`
-```fortran
+```bash
 &share
  wrf_core = 'ARW',
  max_dom = 1,
