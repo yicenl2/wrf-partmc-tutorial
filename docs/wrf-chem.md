@@ -79,7 +79,7 @@ dateHdr(8) = &
 
 **3.** Rebuild `anthro_emis`.
 
-**4.** Modify the `smk_merge_year_change_v3.xls` ([click to download](/assets/file/smk_merge_year_change_v3_bak.xlsx)) to include conversions for the year you want to simulate. 
+**4.** Modify the `smk_merge_year_change_v3_bak.xls` ([click to download](https://github.com/yicenl2/wrf-partmc-tutorial/blob/main/assets/file/smk_merge_year_change_v3_bak.xlsx)) to include conversions for the year you want to simulate. 
 
 ✨ TIP: You may need to change columns D, K, M, and V.
 
@@ -88,12 +88,11 @@ dateHdr(8) = &
 ❗ IMPORTANT: Ensure that the indentations are correct in the saved .txt file to avoid errors!
 
 **6.** Change names (or make copies) of the following files so that the year matches the one you're interested in.
-
 | `sectorlist_2017fd_nata` | `sectorlist_2017gb` | `smk_merge_dates_2017.txt` |
 |--------------------------|---------------------|----------------------------|
 
 💡 <ins>*An example of replacing "2017" with "2022":*</ins>
-![anthro_file_change](/assets/img/anthro_file_change.png)
+<img src="/assets/img/anthro_file_change.png" alt="wrfflow" width="100%" />
 
 ## WRF-Chem
 **1.** Move to the WRF directory.
