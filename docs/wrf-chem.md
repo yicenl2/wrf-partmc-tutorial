@@ -88,13 +88,13 @@ dateHdr(8) = &
 ❗ IMPORTANT: Ensure that the indentations are correct in the saved .txt file to avoid errors!
 
 **6.** Change names (or make copies) of the following files so that the year matches the one you're interested in.
-<br>
+
 | `sectorlist_2017fd_nata` | `sectorlist_2017gb` | `smk_merge_dates_2017.txt` |
 |--------------------------|---------------------|----------------------------|
-<br>
+
 💡 <ins>*An example of replacing "2017" with "2022":*</ins>
 
-![file_change](/assets/img/anthro_file_change.png)
+[<img src="/assets/img/anthro_file_change.png">]()
 
 ## WRF-Chem
 **1.** Move to the WRF directory.
