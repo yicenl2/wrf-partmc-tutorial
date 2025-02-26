@@ -5,7 +5,10 @@
 
 
 ## WPS
-**1.** 
+**1.** Download the [latest version of WPS](https://github.com/wrf-model/WPS).
+```shell
+git clone git@github.com:wrf-model/WPS.git
+```
 
 ---
 [⬆️ Back to Top](#overview)
