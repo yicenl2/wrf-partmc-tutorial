@@ -8,9 +8,11 @@ The WRF Preprocessing System (WPS) consists of three components:
 * [**Metgrid**](#metgrid) - Interpolates the meteorological data onto the model domain.
 
 ## **Ungrib**
-📌 Notes:
-* _Ungrib is *NOT* dependent on any WRF model domain._
-* _Ungrib is *NOT* dependent on Geogrid._
+<div style="border-left: 10px solid #0078D4; background: #E7F3FF; padding: 10px; border-radius: 5px;">
+📌 <span style="color: #0078D4;">Note</span>
+* _Ungrib is NOT dependent on any WRF model domain._
+* _Ungrib is NOT dependent on Geogrid._
+</div>
 
 <ins> **_Steps to run UNGRIB_** </ins>
 
@@ -28,7 +30,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 
 **4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of 
 the `namelist.wps` file for your domain setup.
-> 💡 Tip: You only need to pay attention to the following parameters:\
+> 💡 Tip: You only need to pay attention to the following parameters:
 > * `start_date`
 > * `end_date`
 > * `interval_seconds`
@@ -48,7 +50,7 @@ the `namelist.wps` file for your domain setup.
 
 **2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections 
 of the `namelist.wps` file for your domain setup.
-> 💡 Tip: Run `ncl util/plotgrids.ncl ` to ensure your domain is in the right location before running `geogrid.exe`.
+> 💡 Tip: Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location before running `geogrid.exe`.
 
 **3.** Run `geogrid.exe`
 ```bash
@@ -66,6 +68,7 @@ of the `namelist.wps` file for your domain setup.
 
 **1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of 
 the `namelist.wps` file for your domain setup.
+
 **2.** Run `metgrid.exe`
 ```bash
 ./metgrid.exe
