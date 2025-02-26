@@ -9,7 +9,7 @@ atmospheric aerosol simulation). A scientific overview of WRF-PartMC is in
 
 ## Getting Started
 * 🌱 **New to WRF/WRF-PartMC?** Start by setting up the required dependencies and compiling the model. 
-For detailed instructions, head over to the [Installation Guide](#installation-guide) to get started.
+For detailed instructions, head over to the [Installation Guide](installation.md) to get started.
 
 * 🚀 **Already installed and compiled?** Congratulations! You're now ready to dive into WRF-PartMC. We 
 highly recommend exploring the [WRF-ARW Online Tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/index.php) 
@@ -20,11 +20,11 @@ _**Program flow:**_
 ![](assets/img/anthro_emis.png)
 
 ## Contents
+* [Installation Guide](installation.md)
 * [WRF Preprocessing System (WPS)](wps.md)
+* [WRF Modeling System](wrf.md)
 * [Getting familiar with WRF-Chem](wrf-chem.md)
 * [Sparse Matrix Operator Kernel (SMOKE)](smoke.md)
 * [WRF-PartMC](wrf-partmc.md)
 * [Troubleshooting](troubleshooting.md)
 * [Resources](resources.md)
-
-## Installation Guide

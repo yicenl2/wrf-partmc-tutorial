@@ -3,13 +3,12 @@
 ## Overview
 The WRF Preprocessing System (WPS) consists of three components:
 
-* [**Ungrib**](#ungrib) - Processes meteorological GRIB data.
-* [**Geogrid**](#geogrid) - Creates terrestrial data from static geographic data.
-* [**Metgrid**](#metgrid) - Interpolates the meteorological data onto the model domain.
+* [**Ungrib**](#steps-to-run-ungrib) - Processes meteorological GRIB data.
+* [**Geogrid**](#steps-to-run-geogrid) - Creates terrestrial data from static geographic data.
+* [**Metgrid**](#steps-to-run-metgrid) - Interpolates the meteorological data onto the model domain.
 
-## **Ungrib**
-
-<ins style='font-size: 20px'>**Steps to run UNGRIB**</ins>
+---
+## **Steps to run UNGRIB**
 
 **1.** Download the GRIB data and place in a unique directory (details in [Resources](resources.md))
 
@@ -23,7 +22,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./link_grib.csh ../data/hrrr_01/hrrr
 ```
 
-**4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of the `namelist.wps` file for your domain setup.
+**4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of the `namelist.wps` file for your domain setup ([<ins>example</ins>](#namelist-example)).
 
 ✨ TIP: You only need to pay attention to the following parameters:
 * `start_date`
@@ -38,13 +37,11 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ✅ CHECK: Output will be in the format of `FILE:YYYY-MM-DD_hh`.
 
 
-## **Geogrid** 
-
-<ins style='font-size: 20px'>**Steps to run GEOGRID**</ins>
+## **Steps to run GEOGRID**
 
 **1.** Download the terrestrial data (details in [Resources](resources.md))
 
-**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections of the `namelist.wps` file for your domain setup.
+**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections of the `namelist.wps` file for your domain setup ([<ins>example</ins>](#namelist-example)).
 
 ✨ TIP: Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location.
 
@@ -56,14 +53,11 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ✅ CHECK: Output will be in the format of `geo_em.d<nn>.nc`.
 
 
-## **Metgrid** 
+## **Steps to run METGRID**
 
 📝 NOTE: Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
 
-
-<ins style='font-size: 20px'>**Steps to run METGRID**</ins>
-
-**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of the `namelist.wps` file for your domain setup.
+**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of the `namelist.wps` file for your domain setup ([<ins>example</ins>](#namelist-example)).
 
 **2.** Run `metgrid.exe`
 ```shell
@@ -72,9 +66,9 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 
 ✅ CHECK: Output will be in the format of `met_em.d<nn>YYYY-MM-DD_hh:00:00.nc`.
 
-
-## An example of `namelist.wps`
-```bash
+---
+## Namelist example
+```fortran
 &share
  wrf_core = 'ARW',
  max_dom = 1,
