@@ -94,7 +94,7 @@ dateHdr(8) = &
 
 💡 <ins>*An example of replacing "2017" with "2022":*</ins>
 
-[<img src="/assets/img/anthro_file_change.png">]()
+[<img src="/assets/img/anthrofilechange.png">]()
 
 ## WRF-Chem
 **1.** Move to the WRF directory.
