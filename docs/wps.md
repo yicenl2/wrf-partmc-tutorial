@@ -8,10 +8,12 @@ The WRF Preprocessing System (WPS) consists of three components:
 * [**Metgrid**](#metgrid) - Interpolates the meteorological data onto the model domain.
 
 ## **Ungrib**
-<div style="border-left: 10px solid #0078D4; background: #E7F3FF; padding: 10px; border-radius: 5px;">
-📌 <span style="color: #0078D4;">Note</span>
-* _Ungrib is NOT dependent on any WRF model domain._
-* _Ungrib is NOT dependent on Geogrid._
+<div style="border-left: 5px solid #0078D4; background: #E7F3FF; padding: 10px; border-radius: 5px;">
+    📌 <strong style="color: #0078D4;">**Note**</strong>
+    <ul>
+        <li><em>Ungrib is NOT dependent on any WRF model domain.</em></li>
+        <li><em>Ungrib is NOT dependent on Geogrid.</em></li>
+    </ul>
 </div>
 
 <ins> **_Steps to run UNGRIB_** </ins>
@@ -61,8 +63,13 @@ of the `namelist.wps` file for your domain setup.
 
 
 ## **Metgrid** 
-📌 Notes:
-* Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
+<div style="border-left: 5px solid #0078D4; background: #E7F3FF; padding: 10px; border-radius: 5px;">
+  📌 <strong style="color: #0078D4;">Note</strong>  
+  <ul>
+    <li>Input to Metgrid is the <code>geo_em.d&lt;nn&gt;.nc</code> and <code>FILE:YYYY-MM-DD_hh</code>.</li>
+  </ul>
+</div>
+
 
 <ins> **_Steps to run METGRID_** </ins>
 
