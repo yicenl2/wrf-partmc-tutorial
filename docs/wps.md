@@ -36,7 +36,7 @@ the `namelist.wps` file for your domain setup.
 ./ungrid.exe
 ```
 
-- [x] CHECK: Output will be in the format of `FILE:YYYY-MM-DD_hh`.
+✅ CHECK: Output will be in the format of `FILE:YYYY-MM-DD_hh`.
 
 ## **Geogrid** 
 
@@ -56,7 +56,7 @@ of the `namelist.wps` file for your domain setup.
 ./geogrid.exe
 ```
 
-- [x] CHECK: Output will be in the format of `geo_em.d<nn>.nc`.
+✅ CHECK: Output will be in the format of `geo_em.d<nn>.nc`.
 
 
 ## **Metgrid** 
@@ -72,7 +72,7 @@ the `namelist.wps` file for your domain setup.
 ./metgrid.exe
 ```
 
-- [x] CHECK: Output will be in the format of `met_em.d<nn>.YYYY-MM-DD_hh:00:00.nc`.
+✅ CHECK: Output will be in the format of `met_em.d<nn>.YYYY-MM-DD_hh:00:00.nc`.
 
 ## An example of `namelist.wps`
 ```python
