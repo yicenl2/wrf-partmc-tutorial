@@ -7,10 +7,9 @@ The WRF Preprocessing System (WPS) consists of three components:
 * [**Geogrid**](#steps-to-run-geogrid) - Creates terrestrial data from static geographic data.
 * [**Metgrid**](#steps-to-run-metgrid) - Interpolates the meteorological data onto the model domain.
 
----
 ## **Steps to run UNGRIB**
 
-**1.** Download the GRIB data and place in a unique directory (details in [Resources](resources.md))
+**1.** Download the GRIB data and place in a unique directory (link is in [Additional Resources](resources.md))
 
 **2.** Link the GFS Table (`Vtable`)
 ```shell
@@ -22,7 +21,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./link_grib.csh ../data/hrrr_01/hrrr
 ```
 
-**4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of the `namelist.wps` file for your domain setup ([<ins>example</ins>](#namelist-example)).
+**4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
 ✨ TIP: You only need to pay attention to the following parameters:
 * `start_date`
@@ -41,7 +40,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 
 **1.** Download the terrestrial data (details in [Resources](resources.md))
 
-**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections of the `namelist.wps` file for your domain setup ([<ins>example</ins>](#namelist-example)).
+**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
 ✨ TIP: Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location.
 
@@ -57,7 +56,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 
 📝 NOTE: Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
 
-**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of the `namelist.wps` file for your domain setup ([<ins>example</ins>](#namelist-example)).
+**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
 **2.** Run `metgrid.exe`
 ```shell
@@ -66,9 +65,9 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 
 ✅ CHECK: Output will be in the format of `met_em.d<nn>YYYY-MM-DD_hh:00:00.nc`.
 
----
-## Namelist example
+## An example of namelist.wps
 ```fortran
+! An example for a single domain.
 &share
  wrf_core = 'ARW',
  max_dom = 1,
@@ -107,3 +106,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
  fg_name = 'FILE'
 /
 ```
+
+---
+[⬆️ Back to Top](#overview)
+[⏪ Return to Home](readme.md)

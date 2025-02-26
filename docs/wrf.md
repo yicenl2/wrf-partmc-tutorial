@@ -8,7 +8,6 @@ The WRF model has 2 steps:
 * **real.exe**: Vertically interpolates the `met_em*` files and creates boundary and initial condition files.
 * **wrf.exe**: Generates the model forecast.
 
----
 ## Steps to run WRF
 **1.** Move to the directory in which you plan to run the code.
 ```shell
@@ -24,7 +23,8 @@ ln -sf ~/WPS/met_em.d01.2022-07-0* .
 cp ~/WPS/met_em.d01.2022-07-0* .
 ```
  
-**3.** Edit the `namelist.input` file for your particular run. Detailed descriptions of the namelist parameters can be found [here](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/namelist_variables.html).
+**3.** Edit the `namelist.input` file for your particular run ([example](#an-example-of-namelistinput)). 
+✨ TIP: Detailed descriptions of the namelist parameters can be found [here](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/namelist_variables.html).
  
 **4.** Run `real.exe`
 ```shell
@@ -66,3 +66,112 @@ mpirun -np $SLURM_NTASKS ./wrf.exe
 For detailed error messages, it is recommended to set `debug_level` to a higher value, such as 100 or 1000.
 
 ❗IMPORTANT: Always make a backup of the `namelist.input` file.
+
+## An example of namelist.input
+```fortran
+ &time_control
+ run_days                            = 5,
+ run_hours                           = 0,
+ run_minutes                         = 0,
+ run_seconds                         = 0,
+ start_year                          = 2022,
+ start_month                         = 07,
+ start_day                           = 04,
+ start_hour                          = 00,
+ start_minute                        = 00,
+ start_second                        = 00,
+ end_year                            = 2022,
+ end_month                           = 07,
+ end_day                             = 09,
+ end_hour                            = 00,
+ end_minute                          = 00,
+ end_second                          = 00,
+ interval_seconds                    = 21600
+ input_from_file                     = .true.,
+ history_interval                    = 60,
+ frames_per_outfile                  = 1000,
+ restart                             = .false.,
+ restart_interval                    = 360,
+ io_form_history                     = 2
+ io_form_restart                     = 2
+ io_form_input                       = 2
+ io_form_boundary                    = 2
+ debug_level                         = 0
+ /
+
+ &domains
+ time_step                           = 20,
+ time_step_fract_num                 = 0,
+ time_step_fract_den                 = 1,
+ max_dom                             = 1,
+ e_we                                = 190,
+ e_sn                                = 133,
+ e_vert                              = 45,
+ p_top_requested                     = 5000,
+ num_metgrid_levels                  = 41,
+ num_metgrid_soil_levels             = 9,
+ dx                                  = 4000,
+ dy                                  = 4000,
+ grid_id                             = 1,
+ parent_id                           = 0,
+ i_parent_start                      = 1,
+ j_parent_start                      = 1,
+ parent_grid_ratio                   = 1,
+ parent_time_step_ratio              = 1,
+ feedback                            = 1,
+ smooth_option                       = 0
+ /
+
+ &physics
+ physics_suite                       = 'CONUS'
+ radt                                = 30,
+ bldt                                = 0,
+ cudt                                = 5,
+ icloud                              = 1,
+ num_soil_layers                     = 4,
+ num_land_cat                        = 24,
+ sf_urban_physics                    = 0,
+ /
+
+ &fdda
+ /
+
+ &dynamics
+ w_damping                           = 0,
+ diff_opt                            = 1,
+ km_opt                              = 4,
+ diff_6th_opt                        = 0,
+ diff_6th_factor                     = 0.12,
+ base_temp                           = 290.
+ damp_opt                            = 0,
+ zdamp                               = 5000.,
+ dampcoef                            = 0.2,
+ khdif                               = 0,
+ kvdif                               = 0,
+ non_hydrostatic                     = .true.,
+ moist_adv_opt                       = 1,   
+ scalar_adv_opt                      = 1,
+ gwd_opt                             = 1,
+ /
+
+ &bdy_control
+ spec_bdy_width                      = 5,
+ spec_zone                           = 1,
+ relax_zone                          = 4,
+ specified                           = .true.,
+ nested                              = .false.,
+ /
+
+ &grib2
+ /
+
+ &namelist_quilt
+ nio_tasks_per_group = 0,
+ nio_groups = 1,
+ /
+
+```
+
+---
+[⬆️ Back to Top](#overview)
+[⏪ Return to Home](readme.md)
