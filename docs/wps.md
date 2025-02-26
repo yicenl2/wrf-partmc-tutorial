@@ -29,9 +29,11 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 **4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of 
 the `namelist.wps` file for your domain setup.
 > 💡 Tip: You only need to pay attention to the following parameters:\
-`start_date` | `end_date` | `interval_seconds`
+> * `start_date`
+> * `end_date`
+> * `interval_seconds`
 
-5. Run `ungrid.exe` to create intermediate files
+**5.** Run `ungrid.exe` to create intermediate files
 ```bash
 ./ungrid.exe
 ```
@@ -42,16 +44,13 @@ the `namelist.wps` file for your domain setup.
 
 <ins> **_Steps to run GEOGRID_** </ins>
 
-1. Download the terrestrial data (details in [Resources](resources.md))
+**1.** Download the terrestrial data (details in [Resources](resources.md))
 
-2. Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections 
+**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections 
 of the `namelist.wps` file for your domain setup.
-> 💡 Tip: Use `plotgrids.ncl` to ensure your domain is in the right location before running `geogrid.exe`
-> ```bash
-> ncl util/plotgrids.ncl 
-> ```
+> 💡 Tip: Run `ncl util/plotgrids.ncl ` to ensure your domain is in the right location before running `geogrid.exe`.
 
-3. Run `geogrid.exe`
+**3.** Run `geogrid.exe`
 ```bash
 ./geogrid.exe
 ```
@@ -65,9 +64,9 @@ of the `namelist.wps` file for your domain setup.
 
 <ins> **_Steps to run METGRID_** </ins>
 
-1. Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of 
+**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of 
 the `namelist.wps` file for your domain setup.
-2. Run `metgrid.exe`
+**2.** Run `metgrid.exe`
 ```bash
 ./metgrid.exe
 ```
