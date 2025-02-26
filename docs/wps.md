@@ -29,7 +29,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 **4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of 
 the `namelist.wps` file for your domain setup.
 > 💡 Tip: You only need to pay attention to the following parameters:\
-> | `start_date` | `end_date` | `interval_seconds` |
+`start_date` | `end_date` | `interval_seconds`
 
 5. Run `ungrid.exe` to create intermediate files
 ```bash
