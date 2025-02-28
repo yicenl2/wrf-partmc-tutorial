@@ -104,7 +104,7 @@ export NETCDF=$(nc-config --prefix)
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
-  If successful, this will generate three executables (<code>geogrid.exe</code>, <code>metgrid.exe</code>, and <code>ungrib.exe</code>) inside the <code>WPS/</code> folder.
+  If successful, the <code>WPS/</code> directory will contain three executables: <code>geogrid.exe</code>, <code>metgrid.exe</code>, and <code>ungrib.exe</code>.
 </div>
 
 ## MCIP Installation Guide 
@@ -133,8 +133,10 @@ cd ioapi
 cp Makefile.nocpl Makefile
 ```
 Edit the _Makefile_:
-* Set the base directory: `BASEDIR = */path_to_your_ioapi-3.2_directory/*`
-* Modify `FFLAGS` to include the `-fPIC` flag: `FFLAGS  = $(DEFINEFLAGS) $(FOPTFLAGS) $(OMPFLAGS) $(ARCHFLAGS) -I${IODIR} -fPIC`
+* Set the base directory: `BASEDIR = /PATH_TO_YOUR_ioapi-3.2_DIRECTORY/`
+* Modify `FFLAGS` to include the `-fPIC` flag: 
+  
+  `FFLAGS  = $(DEFINEFLAGS) $(FOPTFLAGS) $(OMPFLAGS) $(ARCHFLAGS) -I${IODIR} -fPIC`
 
 * Edit make-targets (`bins`, `binclean`, `bindirs`, `binrelink`) according to your choice of BINs.
 
@@ -153,14 +155,16 @@ cp Makefile.nocpl Makefile
 ```
 
 Edit the _Makefile_:
-* Set the base directory: `BASEDIR = */path_to_your_ioapi-3.2_directory/*`
+* Set the base directory: `BASEDIR = /PATH_TO_YOUR_ioapi-3.2_DIRECTORY/`
 
-* Modify `FFLAGS` to include the `-fPIC` flag: `FFLAGS = -I$(IODIR) ${MODI}$(OBJDIR) $(ARCHFLAGS) $(FOPTFLAGS) $(ARCHFLAGS) -fPIC
-`
+* Modify `FFLAGS` to include the `-fPIC` flag: 
+
+    `FFLAGS = -I$(IODIR) ${MODI}$(OBJDIR) $(ARCHFLAGS) $(FOPTFLAGS) $(ARCHFLAGS) -fPIC`
+
 * Customize the _make_-variable `LIBS` to deal with ❗'netCDF4 library issues':
-    ```shell
-    LIBS = -L${OBJDIR} -lioapi -L/sw/netcdf4-4.7.4-gnu-9.3.0/lib -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
-    ```
+  
+    `LIBS = -L${OBJDIR} -lioapi -L/sw/netcdf4-4.7.4-gnu-9.3.0/lib -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)`
+
 * Edit make-targets `bins`, `binclean`, `bindirs`, `binrelink` according to your choice of BINs.
 
 
@@ -179,7 +183,7 @@ Edit the _Makefile_:
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
-  If successful, the object directory <code>\$BASEDIR/${BIN}</code> will be created. Make sure the directories is not empty.
+  If successful, the object directory <code>$BASEDIR/${BIN}</code> will be created. Make sure the directories is not empty.
 </div>
 
 #### 🔸 **Build and compile MCIP**
@@ -190,17 +194,17 @@ git clone https://github.com/USEPA/CMAQ
 cd CMAQ/PREP/mcip/
 ```
 
-**2.** Modify the _Makefile_ under `src/` directory.
+**2.** Modify the _Makefile_ under `src/` directory (Select compiler).
 
-* Choose correct compiler: Uncomment contents under `#...gfortran` and change according to the location you installed I/O API from previous steps.
+* Uncomment contents under `#...gfortran` and set the following.
 
-> <img src="/assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 100%;">
+<img src="/assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 100%;">
 
 * Comment contents under `#...Intel Fortran`
 
-> <img src="/assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 80%;">
+<img src="/assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 80%;">
 
-**3.** Compile the code under `\src` directory.
+**3.** Compile the code under `src/` directory.
 ```shell
 make
 ```
