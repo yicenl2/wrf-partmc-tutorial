@@ -44,7 +44,9 @@ cp ~/WPS/met_em.d01.2022-07-0* .
   <strong style="color: #4CAF50;">Check:</strong> 
   
   You should have the following output files: 
+
   <br>
+
   <table style="width: 100%; border-collapse: collapse;">
     <thead>
       <tr>
@@ -74,7 +76,7 @@ cp ~/WPS/met_em.d01.2022-07-0* .
 <ins>*Alternativley*</ins>, you can submit a batch job with the following SLURM script:
 ```bash
 #!/bin/tcsh
-#SBATCH --job-name=[job_name]
+#SBATCH --job-name=WHATEVER_JOB_NAME_YOU_LIKE
 #SBATCH -p sesempi
 #SBATCH --nodes=5
 #SBATCH --ntasks=100
@@ -82,7 +84,7 @@ cp ~/WPS/met_em.d01.2022-07-0* .
 #SBATCH --mem-per-cpu=4000M
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-type=END
-#SBATCH --mail-user=*[your_own_email_address]*
+#SBATCH --mail-user=YOU_OWN_EMAIL_ADDRESS
 
 mpirun -np $SLURM_NTASKS ./wrf.exe
 ```
@@ -92,6 +94,8 @@ mpirun -np $SLURM_NTASKS ./wrf.exe
   
   Output will be in the format of <code>wrfout_d01_YYYY-MM-DD_HH:mm:ss</code>.
 </div>
+
+<br>
 
 <div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
   <strong style="color: #6f42c1">Troubleshooting:</strong>

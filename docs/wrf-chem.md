@@ -57,10 +57,10 @@ cp ~/WRF/test/em_real/wrfinput_* .
 ./anthro_emis < anthro_emis.inp
 ```
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
-  Output will be in the format of <code>wrfchemi_d<nn>_YYYY-MM-DD_HH:mm:ss</code>.
+  Output will be in the format of <code>wrfchemi_d01_YYYY-MM-DD_HH:mm:ss</code>.
 </div>
 
 ### Applying NEI emissions to other years
