@@ -102,7 +102,7 @@ dateHdr(8) = &
 
 💡 <ins>*An example of replacing "2017" with "2022":*</ins>
 
-<img src="/assets/img/anthrofilechange.png" class="img-filechange" alt="">
+<img src="wrf-partmc-tutorial/assets/img/anthrofilechange.png" class="img-filechange" alt="">
 
 ## WRF-Chem
 **1.** Move to the WRF directory.

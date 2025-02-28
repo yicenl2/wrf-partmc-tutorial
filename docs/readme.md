@@ -8,7 +8,7 @@ This documentation provides a comprehensive guide to setting up and running simu
 * 🚀 **Already installed and compiled?** Congratulations, you're now ready to dive into WRF-PartMC! We highly recommend exploring the [WRF-ARW Online Tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/index.php) provided by NCAR to understand the fundamentals of WRF model setup and configuration. <ins>*Alternatively*</ins>, you can explore the sections below for a concise guide on its key components and functionality. 
 
 _**Program flow:**_
-![](assets/img/anthro_emis.png)
+![](wrf-partmc-tutorial/assets/img/anthro_emis.png)
 
 ## Contents
 * [Installation Guide](installation.md)

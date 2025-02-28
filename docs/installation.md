@@ -73,7 +73,7 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
 
-  <img src="/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
+  <img src="wrf-partmc-tutorial/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
 </div>
 
 
@@ -144,7 +144,7 @@ Edit the _Makefile_:
     * `Linux2_x86_64gfort`
     * `Linux2_x86_64gfortdbg`
 
-<center><img src="/assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 70%;"></center>
+<center><img src="wrf-partmc-tutorial/assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 70%;"></center>
 
 **4.** Similarly, build `m3tools/Makefile`.
 ```shell
@@ -196,11 +196,11 @@ cd CMAQ/PREP/mcip/
 
 * Uncomment contents under `#...gfortran` and set the following.
 
-<img src="/assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 100%;">
+<img src="wrf-partmc-tutorial/assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 100%;">
 
 * Comment contents under `#...Intel Fortran`
 
-<img src="/assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 80%;">
+<img src="wrf-partmc-tutorial/assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 80%;">
 
 **3.** Compile the code under `src/` directory.
 ```shell
@@ -250,7 +250,7 @@ cd WRFV3
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
 
-  <img src="/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
+  <img src="wrf-partmc-tutorial/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
 </div>
 </br>
 <div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
