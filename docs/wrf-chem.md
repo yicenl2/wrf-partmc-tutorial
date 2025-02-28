@@ -1,5 +1,9 @@
 # Getting familiar with WRF-Chem
 
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #919497; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+  🔝
+</button>
+
 ## Overview
 In this section, you will learn how to:
 * Include anthropogenic emissions using [the EPA_ANTHRO_EMIS tool](#epa_anthro_emis).
@@ -52,10 +56,16 @@ cp ~/WRF/test/em_real/wrfinput_* .
 ```shell
 ./anthro_emis < anthro_emis.inp
 ```
-✅ CHECK: Output will be in the format of `wrfchemi_d<nn>_YYYY-MM-DD_HH:mm:ss`.
+
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  Output will be in the format of <code>wrfchemi_d<nn>_YYYY-MM-DD_HH:mm:ss</code>.
+</div>
 
 ### Applying NEI emissions to other years
-🔶 *The instructions below were adapted from the [NCAR Discussion Forum](https://groups.google.com/a/ucar.edu/g/wrf-chem-anthro_emiss/c/DCJBfkmrRZs/m/Mq4_IgU_CwAJ).*
+
+<span style="font-size: 13px;">_The instructions below were adapted from the [NCAR Discussion Forum](https://groups.google.com/a/ucar.edu/g/wrf-chem-anthro_emiss/c/DCJBfkmrRZs/m/Mq4_IgU_CwAJ)._</span>
 
 If you want to translate NEI 2014/2017 emissions to alternate years, follow these steps:
 
@@ -345,8 +355,3 @@ cp ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_* .
  /
 
 ```
-
----
-[⬆️ Back to Top](#overview)
-
-[⏪ Return to Home](readme.md)

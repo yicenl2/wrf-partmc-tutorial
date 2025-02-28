@@ -1,5 +1,9 @@
 # WRF Preprocessing System (WPS)
 
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #919497; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+  🔝
+</button>
+
 ## Overview
 The WRF Preprocessing System (WPS) consists of three components:
 
@@ -9,7 +13,7 @@ The WRF Preprocessing System (WPS) consists of three components:
 
 ## **Steps to run UNGRIB**
 
-**1.** Download the GRIB data and place in a unique directory (link is in [Additional Resources](resources.md))
+**1.** Download the GRIB data and place in a unique directory.
 
 **2.** Link the GFS Table (`Vtable`)
 ```shell
@@ -33,12 +37,15 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./ungrid.exe
 ```
 
-✅ CHECK: Output will be in the format of `FILE:YYYY-MM-DD_hh`.
-
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  Output will be in the format of <code>FILE:YYYY-MM-DD_hh</code>.
+</div>
 
 ## **Steps to run GEOGRID**
 
-**1.** Download the terrestrial data (details in [Resources](resources.md))
+**1.** Download the terrestrial data.
 
 **2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
@@ -49,8 +56,11 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./geogrid.exe
 ```
 
-✅ CHECK: Output will be in the format of `geo_em.d<nn>.nc`.
-
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  Output will be in the format of <code>geo_em.d<nn>.nc</code>.
+</div>
 
 ## **Steps to run METGRID**
 
@@ -63,7 +73,11 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./metgrid.exe
 ```
 
-✅ CHECK: Output will be in the format of `met_em.d<nn>YYYY-MM-DD_hh:00:00.nc`.
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  Output will be in the format of <code>met_em.d<nn>YYYY-MM-DD_hh:00:00.nc</code>.
+</div>
 
 ## An example of namelist.wps
 ```fortran
@@ -92,7 +106,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
  truelat1  =  33.0,
  truelat2  =  45.0,
  stand_lon = -97.0,
- geog_data_path = '/data/keeling/a/yicenl2/e/project_wrf/data/geog',
+ geog_data_path = '/*path to the terrestrial data*/',
  ref_x = 95.0,
  ref_y = 66.0,
 /
@@ -106,8 +120,3 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
  fg_name = 'FILE'
 /
 ```
-
----
-[⬆️ Back to Top](#overview)
-
-[⏪ Return to Home](readme.md)

@@ -1,4 +1,4 @@
-# Welcome to WRF-PartMC Documentation!
+# Welcome to the WRF-PartMC Documentation!
 
 This documentation provides a comprehensive guide to setting up and running simulations using [WRF-PartMC](https://github.com/open-atmos/wrf-partmc), a modeling system that integrates the [Weather Research and Forecasting (WRF)](https://www.mmm.ucar.edu/models/wrf) model with [PartMC](https://github.com/compdyn/partmc) (Particle-resolved Monte Carlo code for atmospheric aerosol simulation). A scientific overview of WRF-PartMC is in [Curtis et al. (2024)](https://egusphere.copernicus.org/preprints/2024/egusphere-2024-825/).
 

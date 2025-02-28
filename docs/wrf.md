@@ -1,5 +1,9 @@
 # WRF Modeling System
 
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #919497; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+  🔝
+</button>
+
 ## Overview
 
 Before running the WRF model, make sure that you have the meteorological data `met_em*` prepared from the WPS preprocessing system.
@@ -24,27 +28,34 @@ cp ~/WPS/met_em.d01.2022-07-0* .
 ```
  
 **3.** Edit the `namelist.input` file for your particular run ([example](#an-example-of-namelistinput)). 
-✨ TIP: Detailed descriptions of the namelist parameters can be found [here](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/namelist_variables.html).
+❗Always make a backup of the `namelist.input` file.
+✨ Descriptions of the namelist parameters can be found [here](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/namelist_variables.html).
  
 **4.** Run `real.exe`
 ```shell
 ./real.exe
 ```
 
-✨ TIP: **To run on nodes**, issue the command `mpirun -np 4 ./real.exe` (an example of using 4 nodes)
+✨ To run on nodes, issue the command `mpirun -np 4 ./real.exe` (an example of using 4 nodes)
 
-✅ CHECK: You should have the following output files: 
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  You should have the following output files: 
 
 | File Name         | Description               |
 |-------------------|---------------------------|
 | `wrfinput_d01`    | Initial condition    |
 | `wrfbdy_d01`      | Boundary condition   |
+</div>
+
+</br>
 
 **5.** Run `wrf.exe`
 ```shell
 ./wrf.exe
 ```
-**Alternativley**, you can submit a batch job with the following SLURM script:
+<ins>*Alternativley*</ins>, you can submit a batch job with the following SLURM script:
 ```bash
 #!/bin/tcsh
 #SBATCH --job-name=[job_name]
@@ -55,17 +66,24 @@ cp ~/WPS/met_em.d01.2022-07-0* .
 #SBATCH --mem-per-cpu=4000M
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-type=END
-#SBATCH --mail-user=[your_own_email_address]
+#SBATCH --mail-user=*[your_own_email_address]*
 
 mpirun -np $SLURM_NTASKS ./wrf.exe
 ```
 
-✅ CHECK: Output will be in the format of `wrfout_d<nn>_YYYY-MM-DD_HH:mm:ss`.
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  Output will be in the format of <code>wrfout_d<nn>_YYYY-MM-DD_HH:mm:ss</code>.
+</div>
 
-⭕ DEBUG: If you encounter issues, check the `rsl.error.000*` and `rsl.out.000*` files and search for keywords such as 'Error', 'ERROR', 'FATAL'. 
-For detailed error messages, it is recommended to set `debug_level` to a higher value, such as 100 or 1000.
+<div style="background-color: #f8d7da; border-left: 5px solid #c82530; padding: 2px 10px 0px 10px;">
+  <strong style="color: #c82530">DEBUG:</strong> 
+  
+If you encounter issues, check the `rsl.error.000*` and `rsl.out.000*` files and search for keywords such as 'Error', 'ERROR', 'FATAL'. 
 
-❗IMPORTANT: Always make a backup of the `namelist.input` file.
+For detailed error messages, it is recommended to set `debug_level` to a higher value, such as `100` or `1000`.
+</div>
 
 ## An example of namelist.input
 ```fortran
@@ -171,8 +189,3 @@ For detailed error messages, it is recommended to set `debug_level` to a higher 
  /
 
 ```
-
----
-[⬆️ Back to Top](#overview)
-
-[⏪ Return to Home](readme.md)

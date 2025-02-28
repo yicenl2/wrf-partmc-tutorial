@@ -1,29 +1,29 @@
 # Installation Guide
 
-<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #4e93e2; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #919497; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
   🔝
 </button>
 
 ## WRF-PartMC Supported Versions
 
-| Model    | Version  | Link  |
-|----------|----------|----------------------------------------------------------------------------------|
-| WRF      | 3.9.1.1  | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
-| WRF-Chem | 3.9.1    | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
-| WPS      | 3.9.1+   | [Website](https://github.com/wrf-model/WPS)                                      |
-| MCIP     | 4.3+     | [Website](https://github.com/USEPA/CMAQ)                                         |
-| I/O API  | 3.2      | [Website](https://www.cmascenter.org/ioapi/)                                     |
-
+| Tool        | Version  | Link  |
+|-------------|----------|----------------------------------------------------------------------------------|
+| WRF         | 3.9.1.1  | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
+| WRF-Chem    | 3.9.1    | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
+| WPS         | 3.9.1+   | [Website](https://github.com/wrf-model/WPS)                                      |
+| MCIP        | 4.3+     | [Website](https://github.com/USEPA/CMAQ)                                         |
+| I/O API     | 3.2      | [Website](https://www.cmascenter.org/ioapi/)                                     |
+| WRF-PartMC  | 1.0      | [Website](https://github.com/open-atmos/wrf-partmc)                              |
 
 ## Contents
-* [WRF](#wrf-installation-guide)
-* [WPS](#wps-installation-guide)
-* [MCIP](#mcip-installation-guide)
-* [WRF-PartMC](#wrf-partmc)
+- [WRF Installation Guide](#wrf-installation-guide)
+- [WPS Installation Guide](#wps-installation-guide)
+- [MCIP Installation Guide](#mcip-installation-guide)
+- [WRF-PartMC Installation Guide](#wrf-partmc-installation-guide)
 
 ## WRF Installation Guide
 
-<span style="font-size: 13px;">_<b>New to WRF?</b> Follow these steps to install WRF and WPS to explore and familiarize yourself with it._</span>
+<span style="font-size: 13px;">_<b>New to WRF?</b> Follow these steps to install WRF and WPS and get familiar with them._</span>
 
 **1.** Download the correct version of WRF.
 ```shell
@@ -38,10 +38,8 @@ cd WRFV3
 
 **3.** Set environmnet variable for NETCDF.
 ```shell
-export NETCDF=/sw/netcdf4-4.7.4-gnu-9.3.0
+export NETCDF=$(nc-config --prefix)
 ```
-✨ TIP: You can check the path by typing `nc-config --prefix`
-
 **4.** Configure WRF.
 ```shell
 ./configure
@@ -70,12 +68,12 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 
 ❗ The directory `WRFV3/chem/` will be created.
 
-**6.** Compile the code.
+**8.** Compile the code.
 ```shell
 ./compile em_real
 ```
 
-<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
   If sucessful, this will create `real.exe` and `wrf.exe` in the `main/` directory.
@@ -96,9 +94,8 @@ cd WPS
 
 **2.** Set environmnet variable for NETCDF.
 ```shell
-export NETCDF=/sw/netcdf4-4.7.4-gnu-9.3.0
+export NETCDF=$(nc-config --prefix)
 ```
-✨ TIP: You can check the path by typing `nc-config --prefix`
 
 **3.** Follow the two-step build mechanism.
 ```shell
@@ -107,7 +104,7 @@ export NETCDF=/sw/netcdf4-4.7.4-gnu-9.3.0
 ```
 * Compiler choice: 1
 
-<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
   If successful, this will generate three executables (<code>geogrid.exe</code>, <code>metgrid.exe</code>, and <code>ungrib.exe</code>) inside the <code>WPS/</code> folder.
@@ -115,7 +112,7 @@ export NETCDF=/sw/netcdf4-4.7.4-gnu-9.3.0
 
 ## MCIP Installation Guide 
 
-❗ **Install the prerequisite: I/O API**
+#### 🔸 **Install the prerequisite: I/O API**
 <span style="font-size: 13px;">_You can find detailed installation instructions [here](https://cjcoats.github.io/ioapi/AVAIL.html#build)._</span>
 
 **1.** Download the source code:
@@ -151,7 +148,7 @@ Edit the _Makefile_:
 
     📝 NOTE: Select appropriate binary-type(s) `BIN` according to the file-extensions of the `ioapi/Makeinclude.*`.
 
-    <ins>It is recommended that</ins> you choose both optimized and debug BINs. For example:
+    <ins>*It is recommended that you choose both optimized and debug BINs*</ins>. For example:
     * `Linux2_x86_64gfort`
     * `Linux2_x86_64gfortdbg`
 
@@ -182,7 +179,7 @@ Edit the _Makefile_:
 * Edit make-targets `bins`, `binclean`, `bindirs`, `binrelink` according to your choice of BINs.
 
 
-**4.** Compile _ioapi_ and _m3tools_.
+**5.** Compile _ioapi_ and _m3tools_.
 
 * For *each* `BIN`: 
     ```shell
@@ -194,15 +191,15 @@ Edit the _Makefile_:
     make
     ``` 
 
-<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
   If successful, the object directory <code>\$BASEDIR/${BIN}</code> will be created. Make sure the directories is not empty.
 </div>
 
+#### 🔸 **Build and compile MCIP**
 
-### Build and compile MCIP
-**1.** Grab the code from Github and move to the directory.
+**1.** Clone the repository and move to the directory.
 ```shell
 git clone git@github.com:USEPA/CMAQ.git
 cd CMAQ/PREP/mcip/
@@ -222,8 +219,40 @@ Comment contents under `#...Intel Fortran`
 make
 ```
 
-<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
   If successful, the executable <code>mcip.exe</code> will be created inside the <code>src/</code> folder.
 </div>
+
+## WRF-PartMC Installation Guide
+
+**1.** Download the source code and move to the directory.
+```shell
+git clone git@github.com:open-atmos/wrf-partmc.git
+cd wrf-partmc
+```
+
+**2.** Checkout the PartMC submodule.
+```shell
+git submodule update --init partmc
+```
+
+✨ TIP: if you have access to MOSAIC, you may check it out by:
+```shell
+git submodule update --init mosaic
+```
+
+**3.** Set up the environment variables.
+```shell
+export MOSAIC=1
+export WRF_CHEM=1
+export NETCDF=$(nc-config --prefix)
+```
+
+**4.** Move to the `WRFV3/` directory and follow the process for a standard WRF installation ([see above](#wrf-installation-guide)).
+```shell
+cd WRFV3
+./configure
+./compile em_real
+```
