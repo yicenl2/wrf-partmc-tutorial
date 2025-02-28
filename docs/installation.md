@@ -72,8 +72,8 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
   <strong style="color: #4CAF50">Check:</strong> 
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
-
-  <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 80%;"></center>
+  </br>
+  <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 70%;"></center>
 </div>
 
 ## WPS Installation Guide
@@ -142,7 +142,7 @@ Edit the _Makefile_:
     * `Linux2_x86_64gfort`
     * `Linux2_x86_64gfortdbg`
 
-<center><img src="assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 50%;"></center>
+<center><img src="assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 40%;"></center>
 
 **4.** Similarly, build `m3tools/Makefile`.
 ```shell
@@ -247,8 +247,8 @@ cd WRFV3
   <strong style="color: #4CAF50">Check:</strong> 
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
-
-  <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 80%;"></center>
+  </br>
+  <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 70%;"></center>
 </div>
 </br>
 <div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 5px 10px 5px 10px;">
