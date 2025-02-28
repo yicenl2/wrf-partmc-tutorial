@@ -23,8 +23,6 @@
 
 ## WRF Installation Guide
 
-<span style="font-size: 13px;">_<b>New to WRF?</b> Follow these steps to install WRF and WPS and get familiar with them._</span>
-
 **1.** Download the correct version of WRF.
 ```shell
 wget https://www2.mmm.ucar.edu/wrf/src/WRFV3.9.1.1.TAR.gz
@@ -63,7 +61,7 @@ wget https://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.9.1.TAR.gz
 tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 ```
 
-❗ The directory `WRFV3/chem/` will be created.
+✅ You will find a `chem/` directory inside `WRFV3/`.
 
 **8.** Compile the code.
 ```shell
@@ -161,7 +159,7 @@ Edit the _Makefile_:
 
     `FFLAGS = -I$(IODIR) ${MODI}$(OBJDIR) $(ARCHFLAGS) $(FOPTFLAGS) $(ARCHFLAGS) -fPIC`
 
-* Customize the _make_-variable `LIBS` to deal with ❗'netCDF4 library issues':
+* Customize the _make_-variable `LIBS` to deal with 🚨'netCDF4 library issues'🚨:
   
     `LIBS = -L${OBJDIR} -lioapi -L/sw/netcdf4-4.7.4-gnu-9.3.0/lib -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)`
 
