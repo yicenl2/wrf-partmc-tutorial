@@ -73,10 +73,8 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
 
-  <img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
+  <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 80%;"></center>
 </div>
-
-
 
 ## WPS Installation Guide
 <span style="font-size: 13px;">_Make sure that the WRF model has been compiled **one directory level up** (i.e., `../`) in a directory named `WRF`, `WRFV3`, etc., or specify the full path to the compiled WRF model with the environment variable `$WRF_DIR`._</span>
@@ -144,7 +142,7 @@ Edit the _Makefile_:
     * `Linux2_x86_64gfort`
     * `Linux2_x86_64gfortdbg`
 
-<center><img src="assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 70%;"></center>
+<center><img src="assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 50%;"></center>
 
 **4.** Similarly, build `m3tools/Makefile`.
 ```shell
@@ -196,11 +194,11 @@ cd CMAQ/PREP/mcip/
 
 * Uncomment contents under `#...gfortran` and set the following.
 
-<img src="assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 100%;">
+<center><img src="assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 80%;"></center>
 
 * Comment contents under `#...Intel Fortran`
 
-<img src="assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 80%;">
+<center><img src="assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 65%;"></center>
 
 **3.** Compile the code under `src/` directory.
 ```shell
@@ -250,10 +248,10 @@ cd WRFV3
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
 
-  <img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
+  <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 80%;"></center>
 </div>
 </br>
-<div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
+<div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 5px 10px 5px 10px;">
   <strong style="color: #6f42c1">Troubleshooting:</strong> 
   
   <code>Fatal Error: Cannot open module file '*.mod' for reading at (1): No such file or directory compilation terminated.</code>
@@ -269,7 +267,8 @@ cd WRFV3
     <li>Search for <code>LIB_MOSAIC =</code> and add the following:
       <pre><code>$(WRF_SRC_ROOT_DIR)/../mosaic/libmosaic.a</code></pre>
     </li>
-    Make sure to run <code>./clean</code> before re-compile everything.
+    <li>Make sure to clean the direcotry <code>./clean</code> before re-compiling.
+    </li>
   </ul>
 </div>
 
