@@ -12,10 +12,10 @@ _**Program flow:**_
 
 ## Contents
 * [Installation Guide](installation.md)
-* [WRF Preprocessing System (WPS)](wps.md)
-* [WRF Modeling System](wrf.md)
-* [Getting familiar with WRF-Chem](wrf-chem.md)
-* [Sparse Matrix Operator Kernel (SMOKE)](smoke.md)
+* [WPS](wps.md)
+* [WRF](wrf.md)
+* [WRF-Chem](wrf-chem.md)
+* [Preparing Emissions with SMOKE](smoke.md)
 * [WRF-PartMC](wrf-partmc.md)
 * [Troubleshooting](troubleshooting.md)
 * [Additional Resources](resources.md)

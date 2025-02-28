@@ -4,16 +4,16 @@
   🔝
 </button>
 
-## WRF-PartMC Supported Versions
+## WRF-PartMC Related Components
 
 | Tool        | Version  | Link  |
 |-------------|----------|----------------------------------------------------------------------------------|
 | WRF         | 3.9.1.1  | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
 | WRF-Chem    | 3.9.1    | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
-| WPS         | 3.9.1+   | [Website](https://github.com/wrf-model/WPS)                                      |
-| MCIP        | 4.3+     | [Website](https://github.com/USEPA/CMAQ)                                         |
+| WPS         | 3.9.1+   | [GitHub](https://github.com/wrf-model/WPS)                                      |
+| MCIP        | 4.3+     | [GitHub](https://github.com/USEPA/CMAQ)                                         |
 | I/O API     | 3.2      | [Website](https://www.cmascenter.org/ioapi/)                                     |
-| WRF-PartMC  | 1.0      | [Website](https://github.com/open-atmos/wrf-partmc)                              |
+| WRF-PartMC  | 1.0      | [GitHub](https://github.com/open-atmos/wrf-partmc)                              |
 
 ## Contents
 - [WRF Installation Guide](#wrf-installation-guide)
@@ -36,7 +36,7 @@ tar -zxvf WRFV3.9.1.1.TAR.gz
 cd WRFV3
 ```
 
-**3.** Set environmnet variable for NETCDF.
+**3.** Set environmental variable for NETCDF.
 ```shell
 export NETCDF=$(nc-config --prefix)
 ```
@@ -49,14 +49,11 @@ export NETCDF=$(nc-config --prefix)
 
 **5.** Edit the generated `configure.wrf` file:
 
-* Add `-DMPI2_SUPPORT` flag to `DM_CC`:
-    ```fortran
-    DM_CC = mpicc -DMPI2_SUPPORT
-    ```
+* Modity `DM_CC` to include the `-DMPI2_SUPPORT` flag: `DM_CC = mpicc -DMPI2_SUPPORT`
 
 **6.** Download the correct version of WRF-Chem.
 ```shell
-# Move to one-level upper directory
+# Move up one level in the directory
 cd ../
 wget https://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.9.1.TAR.gz
 ```
@@ -73,10 +70,10 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 ./compile em_real
 ```
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
-  If sucessful, this will create `real.exe` and `wrf.exe` in the `main/` directory.
+  If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
 
   <img src="/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
 </div>
@@ -88,11 +85,11 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 
 **1.** Download the latest version of WPS and move to the directory.
 ```shell
-git clone git@github.com:wrf-model/WPS.git
+git clone https://github.com/wrf-model/WPS
 cd WPS
 ```
 
-**2.** Set environmnet variable for NETCDF.
+**2.** Set environmental variable for NETCDF.
 ```shell
 export NETCDF=$(nc-config --prefix)
 ```
@@ -104,7 +101,7 @@ export NETCDF=$(nc-config --prefix)
 ```
 * Compiler choice: 1
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
   If successful, this will generate three executables (<code>geogrid.exe</code>, <code>metgrid.exe</code>, and <code>ungrib.exe</code>) inside the <code>WPS/</code> folder.
@@ -120,7 +117,7 @@ export NETCDF=$(nc-config --prefix)
 wget https://www.cmascenter.org/ioapi/download/ioapi-3.2.tar.gz
 ```
 
-**2.** Extract the code and set up environment variables.
+**2.** Extract the code and set environmental variables.
 ```shell
 mkdir ioapi-3.2
 tar -xvzf ioapi-3.2.tar.gz -C ioapi-3.2
@@ -136,14 +133,9 @@ cd ioapi
 cp Makefile.nocpl Makefile
 ```
 Edit the _Makefile_:
-* Set the base directory:
-    ```shell
-    BASEDIR = ~/ioapi-3.2 # path to your ioapi-3.2 directory
-    ```
-* Add `-fPIC` flag to `FFLAGS`:
-    ```shell
-    FFLAGS  = $(DEFINEFLAGS) $(FOPTFLAGS) $(OMPFLAGS) $(ARCHFLAGS) -I${IODIR} -fPIC
-    ```
+* Set the base directory: `BASEDIR = */path_to_your_ioapi-3.2_directory/*`
+* Modify `FFLAGS` to include the `-fPIC` flag: `FFLAGS  = $(DEFINEFLAGS) $(FOPTFLAGS) $(OMPFLAGS) $(ARCHFLAGS) -I${IODIR} -fPIC`
+
 * Edit make-targets (`bins`, `binclean`, `bindirs`, `binrelink`) according to your choice of BINs.
 
     📝 NOTE: Select appropriate binary-type(s) `BIN` according to the file-extensions of the `ioapi/Makeinclude.*`.
@@ -161,17 +153,10 @@ cp Makefile.nocpl Makefile
 ```
 
 Edit the _Makefile_:
-* Set the base directory:
+* Set the base directory: `BASEDIR = */path_to_your_ioapi-3.2_directory/*`
 
-    `BASEDIR = ~/ioapi-3.2` ➜ Change to the path to your ioapi-3.2 directory
-
-    ```shell
-    BASEDIR = ~/ioapi-3.2 # Change this to the path of your ioapi-3.2 directory
-    ```
-* Add `-fPIC` flag to `FFLAGS`:
-    ```shell
-    FFLAGS = -I$(IODIR) ${MODI}$(OBJDIR) $(ARCHFLAGS) $(FOPTFLAGS) $(ARCHFLAGS) -fPIC
-    ```
+* Modify `FFLAGS` to include the `-fPIC` flag: `FFLAGS = -I$(IODIR) ${MODI}$(OBJDIR) $(ARCHFLAGS) $(FOPTFLAGS) $(ARCHFLAGS) -fPIC
+`
 * Customize the _make_-variable `LIBS` to deal with ❗'netCDF4 library issues':
     ```shell
     LIBS = -L${OBJDIR} -lioapi -L/sw/netcdf4-4.7.4-gnu-9.3.0/lib -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
@@ -191,7 +176,7 @@ Edit the _Makefile_:
     make
     ``` 
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
   If successful, the object directory <code>\$BASEDIR/${BIN}</code> will be created. Make sure the directories is not empty.
@@ -201,25 +186,26 @@ Edit the _Makefile_:
 
 **1.** Clone the repository and move to the directory.
 ```shell
-git clone git@github.com:USEPA/CMAQ.git
+git clone https://github.com/USEPA/CMAQ
 cd CMAQ/PREP/mcip/
 ```
 
-**2.** Modify `Makefile` under `\src` directory.
-Choose correct compiler: Uncomment contents under `#...gfortran` and change according to the location you installed I/O API from previous steps.
+**2.** Modify the _Makefile_ under `src/` directory.
 
-<img src="/assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 100%;">
+* Choose correct compiler: Uncomment contents under `#...gfortran` and change according to the location you installed I/O API from previous steps.
 
-Comment contents under `#...Intel Fortran`
+> <img src="/assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 100%;">
 
-<img src="/assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 80%;">
+* Comment contents under `#...Intel Fortran`
+
+> <img src="/assets/img/mcipmakefile2.png" class="img-wrfflow" alt="" style="width: 80%;">
 
 **3.** Compile the code under `\src` directory.
 ```shell
 make
 ```
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">CHECK:</strong> 
   
   If successful, the executable <code>mcip.exe</code> will be created inside the <code>src/</code> folder.
@@ -229,7 +215,7 @@ make
 
 **1.** Download the source code and move to the directory.
 ```shell
-git clone git@github.com:open-atmos/wrf-partmc.git
+git clone https://github.com/open-atmos/wrf-partmc
 cd wrf-partmc
 ```
 
@@ -238,7 +224,7 @@ cd wrf-partmc
 git submodule update --init partmc
 ```
 
-✨ TIP: if you have access to MOSAIC, you may check it out by:
+✨ if you have access to MOSAIC, you may check it out by:
 ```shell
 git submodule update --init mosaic
 ```
