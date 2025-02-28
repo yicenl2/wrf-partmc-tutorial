@@ -1,6 +1,6 @@
 # WRF Preprocessing System (WPS)
 
-<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #919497; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #3584de; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
   🔝
 </button>
 
@@ -25,7 +25,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./link_grib.csh ../data/hrrr_01/hrrr
 ```
 
-**4.** Edit the `&share` and <span style="color: magenta;">`&ungrib`</span> sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
+**4.** Edit the `&share` and `&ungrib` sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
 ✨ TIP: You only need to pay attention to the following parameters:
 * `start_date`
@@ -37,17 +37,17 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./ungrid.exe
 ```
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
+  <strong style="color: #4CAF50">Check:</strong> 
   
-  Output will be in the format of <code>FILE:YYYY-MM-DD_hh</code>.
+  Output will be in the format of <code>FILE:YYYY-MM-DD_hh</code>
 </div>
 
 ## **Steps to run GEOGRID**
 
 **1.** Download the terrestrial data.
 
-**2.** Edit the `&share` and <span style="color: magenta;">`&geogrid`</span> sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
+**2.** Edit the `&share` and `&geogrid` sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
 ✨ TIP: Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location.
 
@@ -56,27 +56,27 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 ./geogrid.exe
 ```
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
+  <strong style="color: #4CAF50">Check:</strong> 
   
-  Output will be in the format of <code>geo_em.d<nn>.nc</code>.
+  Output will be in the format of <code>geo_em.d01.nc</code>
 </div>
 
 ## **Steps to run METGRID**
 
 📝 NOTE: Input to Metgrid is the `geo_em.d<nn>.nc` and `FILE:YYYY-MM-DD_hh`.
 
-**1.** Edit the `&share` and <span style="color: magenta;">`&metgrid`</span> sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
+**1.** Edit the `&share` and `&metgrid` sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
 **2.** Run `metgrid.exe`
 ```shell
 ./metgrid.exe
 ```
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
+  <strong style="color: #4CAF50">Check:</strong> 
   
-  Output will be in the format of <code>met_em.d<nn>YYYY-MM-DD_hh:00:00.nc</code>.
+  Output will be in the format of <code>met_em.d01.YYYY-MM-DD_hh:00:00.nc</code>
 </div>
 
 ## An example of namelist.wps
@@ -106,7 +106,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
  truelat1  =  33.0,
  truelat2  =  45.0,
  stand_lon = -97.0,
- geog_data_path = '/*path to the terrestrial data*/',
+ geog_data_path = '/PATH_TO_THE_TERRESTRIAL_DATA/',
  ref_x = 95.0,
  ref_y = 66.0,
 /
