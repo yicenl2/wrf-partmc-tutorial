@@ -249,12 +249,9 @@ cd WRFV3
   <strong style="color: #4CAF50">Check:</strong> 
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
-  
-  <br>
-
-  <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 70%;"></center>
 </div>
 
+<br>
 
 <div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 5px 10px 5px 10px;">
   <strong style="color: #6f42c1">Troubleshooting:</strong> 
