@@ -3,7 +3,7 @@
 _**Program flow for a typical WRF run:**_
 <span style="font-size: 13px;">_Source: [WRF-ARW Online Tutorial](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/index.php)_</span>
 
-<img src="wrf-partmc-tutorial/assets/img/wrfflow.png" class="img-wrfflow" alt="" style="width: 70%;">
+<img src="assets/img/wrfflow.png" class="img-wrfflow" alt="" style="width: 70%;">
 
 It is recommended to create a folder for all data sources.
 
