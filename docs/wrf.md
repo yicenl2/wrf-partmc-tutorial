@@ -1,6 +1,6 @@
 # WRF Modeling System
 
-<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #3584de; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #919497; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 30px;">
   🔝
 </button>
 
@@ -27,8 +27,10 @@ ln -sf ~/WPS/met_em.d01.2022-07-0* .
 cp ~/WPS/met_em.d01.2022-07-0* .
 ```
  
-**3.** Edit the `namelist.input` file for your particular run ([example](#an-example-of-namelistinput)). 
+**3.** Edit the `namelist.input` file for your particular run ([example](#an-example-of-namelistinput)).
+
 ❗Always make a backup of the `namelist.input` file.
+
 ✨ Descriptions of the namelist parameters can be found [here](https://www2.mmm.ucar.edu/wrf/users/wrf_users_guide/build/html/namelist_variables.html).
  
 **4.** Run `real.exe`
@@ -38,18 +40,32 @@ cp ~/WPS/met_em.d01.2022-07-0* .
 
 ✨ To run on nodes, issue the command `mpirun -np 4 ./real.exe` (an example of using 4 nodes)
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
+  <strong style="color: #4CAF50;">Check:</strong> 
   
   You should have the following output files: 
-
-| File Name         | Description               |
-|-------------------|---------------------------|
-| `wrfinput_d01`    | Initial condition    |
-| `wrfbdy_d01`      | Boundary condition   |
+  <br>
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid #e1e4e8; padding: 5px; text-align: left;">File Name</th>
+        <th style="border: 1px solid #e1e4e8; padding: 5px; text-align: left;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid #e1e4e8; padding: 5px;"><code>wrfinput_d01</code></td>
+        <td style="border: 1px solid #e1e4e8; padding: 5px;">Initial condition</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #e1e4e8; padding: 5px;"><code>wrfbdy_d01</code></td>
+        <td style="border: 1px solid #e1e4e8; padding: 5px;">Boundary condition</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-</br>
+<br>
 
 **5.** Run `wrf.exe`
 ```shell
@@ -72,17 +88,17 @@ mpirun -np $SLURM_NTASKS ./wrf.exe
 ```
 
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+  <strong style="color: #4CAF50">Check:</strong> 
   
-  Output will be in the format of <code>wrfout_d<nn>_YYYY-MM-DD_HH:mm:ss</code>.
+  Output will be in the format of <code>wrfout_d01_YYYY-MM-DD_HH:mm:ss</code>.
 </div>
 
 <div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
   <strong style="color: #6f42c1">Troubleshooting:</strong>
   
-If you encounter issues, check the `rsl.error.000*` and `rsl.out.000*` files and search for keywords such as 'Error', 'ERROR', 'FATAL'. 
+If you encounter issues, check the <code>rsl.error.000*</code> and <code>rsl.out.000*</code> files and search for keywords such as 'Error', 'ERROR', 'FATAL'. 
 
-For detailed error messages, it is recommended to set `debug_level` to a higher value, such as `100` or `1000`.
+For detailed error messages, it is recommended to set <code>debug_level</code> to a higher value, such as <code>100</code> or <code>1000</code>.
 </div>
 
 ## An example of namelist.input

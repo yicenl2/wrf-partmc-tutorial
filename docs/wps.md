@@ -1,6 +1,6 @@
 # WRF Preprocessing System (WPS)
 
-<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #3584de; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #919497; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 30px;">
   🔝
 </button>
 
@@ -27,7 +27,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 
 **4.** Edit the `&share` and `&ungrib` sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
-✨ TIP: You only need to pay attention to the following parameters:
+✨ You only need to pay attention to the following parameters:
 * `start_date`
 * `end_date`
 * `interval_seconds`
@@ -49,7 +49,7 @@ ln -sf ungrib/Variable_Tables/Vtable.HRRR.bkb Vtable
 
 **2.** Edit the `&share` and `&geogrid` sections of the `namelist.wps` file for your domain setup ([example](#an-example-of-namelistwps)).
 
-✨ TIP: Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location.
+✨ Run `ncl util/plotgrids.ncl` to ensure your domain is in the right location.
 
 **3.** Run `geogrid.exe`
 ```shell

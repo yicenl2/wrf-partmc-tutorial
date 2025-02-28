@@ -1,6 +1,6 @@
 # Installation Guide
 
-<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #3584de; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #3584de; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 30px;">
   🔝
 </button>
 
@@ -61,7 +61,7 @@ wget https://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.9.1.TAR.gz
 tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 ```
 
-✅ You will find a `chem/` directory inside `WRFV3/`.
+✨ You will find a `chem/` directory inside `WRFV3/`.
 
 **8.** Compile the code.
 ```shell
@@ -72,7 +72,9 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
   <strong style="color: #4CAF50">Check:</strong> 
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
-  </br>
+
+  <br>
+
   <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 70%;"></center>
 </div>
 
@@ -192,7 +194,7 @@ cd CMAQ/PREP/mcip/
 
 **2.** Modify the _Makefile_ under `src/` directory (Select compiler).
 
-* Uncomment contents under `#...gfortran` and set the following.
+* Uncomment contents under `#...gfortran` and set the following:
 
 <center><img src="assets/img/mcipmakefile1.jpg" class="img-wrfflow" alt="" style="width: 80%;"></center>
 
@@ -247,15 +249,18 @@ cd WRFV3
   <strong style="color: #4CAF50">Check:</strong> 
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
-  </br>
+  
+  <br>
+
   <center><img src="assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="" style="width: 70%;"></center>
 </div>
-</br>
+
+
 <div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 5px 10px 5px 10px;">
   <strong style="color: #6f42c1">Troubleshooting:</strong> 
-  
+  <br>
   <code>Fatal Error: Cannot open module file '*.mod' for reading at (1): No such file or directory compilation terminated.</code>
-
+  <br>
   <p><em>Solution</em>:</p>
   <ul>
     <li>Search for <code>INCLUDE_MODULES = </code> and add this line: 
