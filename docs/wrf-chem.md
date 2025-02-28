@@ -58,7 +58,7 @@ cp ~/WRF/test/em_real/wrfinput_* .
 ```
 
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+  <strong style="color: #4CAF50">Check:</strong> 
   
   Output will be in the format of <code>wrfchemi_d01_YYYY-MM-DD_HH:mm:ss</code>.
 </div>
@@ -97,8 +97,9 @@ dateHdr(8) = &
 
 **6.** Change names (or make copies) of the following files so that the year matches the one you're interested in.
 
-| `sectorlist_2017fd_nata` | `sectorlist_2017gb` | `smk_merge_dates_2017.txt` |
-|--------------------------|---------------------|----------------------------|
+* `sectorlist_2017fd_nata`
+* `sectorlist_2017gb`
+* `smk_merge_dates_2017.txt`
 
 💡 <ins>*An example of replacing "2017" with "2022":*</ins>
 
@@ -119,6 +120,7 @@ cp ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_* .
 ```
 
 **3.** Edit the `namelist.input` ([example](#an-example-of-namelistinput-with-chemistry)).
+
 ✨ TIP: Pay attention to the following parameters:
 * `chem_opt = 8`
 * `io_style_emissions = 2`
@@ -127,13 +129,13 @@ cp ../../../EPA_ANTHRO_EMIS/wrfchemi_d01_* .
 * `kemit = 1`
 * `emi_inname = "wrfchemi_d<domain>_<date>"`
 * `auxinput5_interval_m = 60`
-* `frames_per_auxinput5 = 1` ❗ Add this line to ensure WRF reads the `wrfchemi*` file correctly.
+* `frames_per_auxinput5 = 1` ❗ Add this line to ensure WRF reads the `wrfchemi*` files correctly.
 
 ## An example of anthro_emis.inp
 ```fortran
 &CONTROL
  wrf_dir    = '.'
- anthro_dir = '/data/nriemer/e/yicenl2/project_wrf/data/NEI_2017_EPA'
+ anthro_dir = '/PATH_TO_THE_NEI_EMISSION_DATA/'
  src_lon_dim_name = 'COL'
  src_lat_dim_name = 'ROW'
  domains = 1

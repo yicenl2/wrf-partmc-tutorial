@@ -44,27 +44,12 @@ cp ~/WPS/met_em.d01.2022-07-0* .
   <strong style="color: #4CAF50;">Check:</strong> 
   
   You should have the following output files: 
-
   <br>
-
-  <table style="width: 100%; border-collapse: collapse;">
-    <thead>
-      <tr>
-        <th style="border: 1px solid #e1e4e8; padding: 5px; text-align: left;">File Name</th>
-        <th style="border: 1px solid #e1e4e8; padding: 5px; text-align: left;">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="border: 1px solid #e1e4e8; padding: 5px;"><code>wrfinput_d01</code></td>
-        <td style="border: 1px solid #e1e4e8; padding: 5px;">Initial condition</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #e1e4e8; padding: 5px;"><code>wrfbdy_d01</code></td>
-        <td style="border: 1px solid #e1e4e8; padding: 5px;">Boundary condition</td>
-      </tr>
-    </tbody>
-  </table>
+  
+  <li><code>wrfinput_d01</code> - Initial condition file
+  </li>
+  <li><code>wrfbdy_d01</code> - Boundary condition file
+  </li>
 </div>
 
 <br>
@@ -89,15 +74,14 @@ cp ~/WPS/met_em.d01.2022-07-0* .
 mpirun -np $SLURM_NTASKS ./wrf.exe
 ```
 
-<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 2px 10px 0px 10px;">
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
   <strong style="color: #4CAF50">Check:</strong> 
   
   Output will be in the format of <code>wrfout_d01_YYYY-MM-DD_HH:mm:ss</code>.
 </div>
-
 <br>
 
-<div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
+<div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 5px 10px 5px 10px;">
   <strong style="color: #6f42c1">Troubleshooting:</strong>
   
 If you encounter issues, check the <code>rsl.error.000*</code> and <code>rsl.out.000*</code> files and search for keywords such as 'Error', 'ERROR', 'FATAL'. 
