@@ -1,24 +1,29 @@
 # Installation Guide
 
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 20px; right: 20px; background-color: #4e93e2; color: white; border: none; padding: 8px 10px; cursor: pointer; border-radius: 5px; font-size: 20px;">
+  🔝
+</button>
+
 ## WRF-PartMC Supported Versions
 
-| Model    | Version                                     | Link  |
-|----------|---------------------------------------------|-------|
-| WRF      | 3.9.1.1 (release date: August 28, 2017)    | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html) |
-| WRF-Chem | 3.9.1 (release date: August 17, 2017)      | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html) |
-| WPS      | 3.9.1+      | [Website](https://github.com/wrf-model/WPS) |
-| MCIP     | 4.3+      | [Website](https://github.com/USEPA/CMAQ) |
-| I/O API     | 3.2      | [Website](https://www.cmascenter.org/ioapi/) |
+| Model    | Version  | Link  |
+|----------|----------|----------------------------------------------------------------------------------|
+| WRF      | 3.9.1.1  | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
+| WRF-Chem | 3.9.1    | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
+| WPS      | 3.9.1+   | [Website](https://github.com/wrf-model/WPS)                                      |
+| MCIP     | 4.3+     | [Website](https://github.com/USEPA/CMAQ)                                         |
+| I/O API  | 3.2      | [Website](https://www.cmascenter.org/ioapi/)                                     |
 
 
 ## Contents
-* [WRF-Chem](#wrf-chem-installation-guide)
+* [WRF](#wrf-installation-guide)
 * [WPS](#wps-installation-guide)
 * [MCIP](#mcip-installation-guide)
 * [WRF-PartMC](#wrf-partmc)
 
-## WRF-Chem Installation Guide
-<span style="font-size: 13px;">_<b>New to WRF?</b> If you're just getting started with WRF or WRF-Chem, follow these steps to install WRF-Chem and WPS to explore and familiarize yourself with WRF._</span>
+## WRF Installation Guide
+
+<span style="font-size: 13px;">_<b>New to WRF?</b> Follow these steps to install WRF and WPS to explore and familiarize yourself with it._</span>
 
 **1.** Download the correct version of WRF.
 ```shell
@@ -44,15 +49,12 @@ export NETCDF=/sw/netcdf4-4.7.4-gnu-9.3.0
 * Compiler choice: 34
 * Nesting option: 1
 
-✅ CHECK: This will generate a `configure.wrf` file.
+**5.** Edit the generated `configure.wrf` file:
 
-**5.** Edit the `configure.wrf` file by applying the following change:
-
-Change:
-`DM_CC = mpicc`
-
-To:
-`DM_CC = mpicc -DMPI2_SUPPORT`
+* Add `-DMPI2_SUPPORT` flag to `DM_CC`:
+    ```fortran
+    DM_CC = mpicc -DMPI2_SUPPORT
+    ```
 
 **6.** Download the correct version of WRF-Chem.
 ```shell
@@ -66,19 +68,25 @@ wget https://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.9.1.TAR.gz
 tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 ```
 
-✅ CHECK: There should be a `chem` folder inside `WRFV3` directory.
+❗ The directory `WRFV3/chem/` will be created.
 
 **6.** Compile the code.
 ```shell
 ./compile em_real
 ```
 
-✅ CHECK: If sucessful, this will create `real.exe` and `wrf.exe` in directory `main/`
+<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  If sucessful, this will create `real.exe` and `wrf.exe` in the `main/` directory.
 
-<img src="/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
+  <img src="/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
+</div>
+
+
 
 ## WPS Installation Guide
-<span style="font-size: 13px;">_Make sure that the WRF model has been compiled <u>one directory level up</u> (i.e., `../`) in a directory named `WRF`, `WRFV3`, etc., or specify the full path to the compiled WRF model with the environment variable `$WRF_DIR`._</span>
+<span style="font-size: 13px;">_Make sure that the WRF model has been compiled **one directory level up** (i.e., `../`) in a directory named `WRF`, `WRFV3`, etc., or specify the full path to the compiled WRF model with the environment variable `$WRF_DIR`._</span>
 
 **1.** Download the latest version of WPS and move to the directory.
 ```shell
@@ -99,15 +107,18 @@ export NETCDF=/sw/netcdf4-4.7.4-gnu-9.3.0
 ```
 * Compiler choice: 1
 
-✅ CHECK: If sucessful, this will create three executables: `geogrid.exe`, `metgrid.exe`, and `ungrib.exe`.
+<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  If successful, this will generate three executables (<code>geogrid.exe</code>, <code>metgrid.exe</code>, and <code>ungrib.exe</code>) inside the <code>WPS/</code> folder.
+</div>
 
-## MCIP Installation Guide
-### Prerequiste: I/O API
-❗ IMPORTANT: Before proceeding, ensure you have I/O API 3.2 installed. You can find the detailed installation instruction [here](https://cjcoats.github.io/ioapi/AVAIL.html#build).
+## MCIP Installation Guide 
+
+❗ **Install the prerequisite: I/O API**
+<span style="font-size: 13px;">_You can find detailed installation instructions [here](https://cjcoats.github.io/ioapi/AVAIL.html#build)._</span>
 
 **1.** Download the source code:
-<img src="/assets/img/ioapidownload.png" class="img-wrfflow" alt="" style="width: 100%;">
-
 ```shell
 wget https://www.cmascenter.org/ioapi/download/ioapi-3.2.tar.gz
 ```
@@ -127,7 +138,7 @@ export NETCDF=/sw/netcdf4-4.7.4-gnu-9.3.0
 cd ioapi
 cp Makefile.nocpl Makefile
 ```
-Edit the `Makefile` with the following changes:
+Edit the _Makefile_:
 * Set the base directory:
     ```shell
     BASEDIR = ~/ioapi-3.2 # path to your ioapi-3.2 directory
@@ -138,49 +149,57 @@ Edit the `Makefile` with the following changes:
     ```
 * Edit make-targets (`bins`, `binclean`, `bindirs`, `binrelink`) according to your choice of BINs.
 
-    📝 NOTE: Select appropriate binary-type(s) BIN according to the file-extensions of the `ioapi/Makeinclude.*`.
+    📝 NOTE: Select appropriate binary-type(s) `BIN` according to the file-extensions of the `ioapi/Makeinclude.*`.
 
-    It is recommended that you choose both **optimized** and **debug** BINs. For example:
+    <ins>It is recommended that</ins> you choose both optimized and debug BINs. For example:
     * `Linux2_x86_64gfort`
     * `Linux2_x86_64gfortdbg`
 
-<center><img src="/assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 50%;"></center>
+<center><img src="/assets/img/ioapimakefile.png" class="img-wrfflow" alt="" style="width: 70%;"></center>
 
-**4.** Similarly, for `m3tools/Makefile`.
+**4.** Similarly, build `m3tools/Makefile`.
 ```shell
 cd ../m3tools
 cp Makefile.nocpl Makefile
 ```
-Edit the `Makefile`:
+
+Edit the _Makefile_:
 * Set the base directory:
+
+    `BASEDIR = ~/ioapi-3.2` ➜ Change to the path to your ioapi-3.2 directory
+
     ```shell
-    BASEDIR = ~/ioapi-3.2 # path to your ioapi-3.2 directory
+    BASEDIR = ~/ioapi-3.2 # Change this to the path of your ioapi-3.2 directory
     ```
 * Add `-fPIC` flag to `FFLAGS`:
     ```shell
     FFLAGS = -I$(IODIR) ${MODI}$(OBJDIR) $(ARCHFLAGS) $(FOPTFLAGS) $(ARCHFLAGS) -fPIC
     ```
-* Update `LIBS` by including path to NETCDF4 library:
+* Customize the _make_-variable `LIBS` to deal with ❗'netCDF4 library issues':
     ```shell
     LIBS = -L${OBJDIR} -lioapi -L/sw/netcdf4-4.7.4-gnu-9.3.0/lib -lnetcdff -lnetcdf $(OMPLIBS) $(ARCHLIB) $(ARCHLIBS)
     ```
-    ❗ IMPORTANT: must change this line to avoid 'netCDF4 library issues'.
 * Edit make-targets `bins`, `binclean`, `bindirs`, `binrelink` according to your choice of BINs.
 
 
-**4.** Compile `ioapi` and `m3tools`.
+**4.** Compile _ioapi_ and _m3tools_.
 
-For *each* `BIN` type: 
-```shell
-cd ioapi
-export BIN='Linux2_x86_64gfort'
-make dir
-make
-cd ../m3tools
-make
-``` 
+* For *each* `BIN`: 
+    ```shell
+    cd ioapi
+    export BIN='Linux2_x86_64gfort'
+    make dir
+    make
+    cd ../m3tools
+    make
+    ``` 
 
-✅ CHECK: If sucessful, this will create directories with the same name as the `BIN` type, e.g., `Linux2_x86_64gfort` & `Linux2_x86_64gfortdbg` (make sure they are not empty).
+<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  If successful, the object directory <code>\$BASEDIR/${BIN}</code> will be created. Make sure the directories is not empty.
+</div>
+
 
 ### Build and compile MCIP
 **1.** Grab the code from Github and move to the directory.
@@ -203,9 +222,8 @@ Comment contents under `#...Intel Fortran`
 make
 ```
 
-✅ CHECK: If sucessful, this will create the executable `mcip.exe`.
-
----
-[⬆️ Back to Top](#wrf-partmc-supported-versions)
-
-[⏪ Return to Home](readme.md)
+<div style="background-color: #f9f9f9; border-left: 5px solid #4CAF50; padding: 5px 10px 1px 10px;">
+  <strong style="color: #4CAF50">CHECK:</strong> 
+  
+  If successful, the executable <code>mcip.exe</code> will be created inside the <code>src/</code> folder.
+</div>
