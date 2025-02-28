@@ -69,7 +69,7 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 ```
 
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+  <strong style="color: #4CAF50">Check:</strong> 
   
   If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
 
@@ -100,7 +100,7 @@ export NETCDF=$(nc-config --prefix)
 * Compiler choice: 1
 
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+  <strong style="color: #4CAF50">Check:</strong> 
   
   If successful, the <code>WPS/</code> directory will contain three executables: <code>geogrid.exe</code>, <code>metgrid.exe</code>, and <code>ungrib.exe</code>.
 </div>
@@ -179,7 +179,7 @@ Edit the _Makefile_:
     ``` 
 
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+  <strong style="color: #4CAF50">Check:</strong> 
   
   If successful, the object directory <code>$BASEDIR/${BIN}</code> will be created. Make sure the directories is not empty.
 </div>
@@ -208,7 +208,7 @@ make
 ```
 
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
-  <strong style="color: #4CAF50">CHECK:</strong> 
+  <strong style="color: #4CAF50">Check:</strong> 
   
   If successful, the executable <code>mcip.exe</code> will be created inside the <code>src/</code> folder.
 </div>
@@ -238,9 +238,29 @@ export WRF_CHEM=1
 export NETCDF=$(nc-config --prefix)
 ```
 
-**4.** Move to the `WRFV3/` directory and follow the process for a standard WRF installation ([see above](#wrf-installation-guide)).
+**4.** Move to the `WRFV3/` directory and follow the processes for a standard WRF installation ([see above](#wrf-installation-guide)).
 ```shell
 cd WRFV3
 ./configure
 ./compile em_real
 ```
+
+<div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
+  <strong style="color: #6f42c1">Troubleshooting:</strong> 
+  
+`Fatal Error: Cannot open module file '*.mod' for reading at (1): No such file or directory compilation terminated.`
+
+<em>Solution</em>: 
+* Search for `INCLUDE_MODULES = ` and add this line: 
+
+    `-I$(WRF_SRC_ROOT_DIR)/../mosaic -I$(WRF_SRC_ROOT_DIR)/../mosaic/datamodules \`
+
+* Search for `ENVCOMPDEFS     =` and add the flag:
+
+    `-DPMC_USE_MOSAIC_MULTI_OPT`
+
+* Search for `LIB_MOSAIC      =` and add the following:
+
+    `$(WRF_SRC_ROOT_DIR)/../mosaic/libmosaic.a`
+</div>
+

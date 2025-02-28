@@ -77,8 +77,8 @@ mpirun -np $SLURM_NTASKS ./wrf.exe
   Output will be in the format of <code>wrfout_d<nn>_YYYY-MM-DD_HH:mm:ss</code>.
 </div>
 
-<div style="background-color: #f8d7da; border-left: 5px solid #c82530; padding: 2px 10px 0px 10px;">
-  <strong style="color: #c82530">DEBUG:</strong> 
+<div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
+  <strong style="color: #6f42c1">Troubleshooting:</strong>
   
 If you encounter issues, check the `rsl.error.000*` and `rsl.out.000*` files and search for keywords such as 'Error', 'ERROR', 'FATAL'. 
 
