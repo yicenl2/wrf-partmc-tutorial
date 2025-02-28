@@ -245,22 +245,30 @@ cd WRFV3
 ./compile em_real
 ```
 
+<div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
+  <strong style="color: #4CAF50">Check:</strong> 
+  
+  If sucessful, this will create <code>real.exe</code> and <code>wrf.exe</code> in the <code>main/</code> directory.
+
+  <img src="/assets/img/wrfbuildsuccess.jpg" class="img-wrfflow" alt="">
+</div>
+</br>
 <div style="background-color: #e8d9f1; border-left: 5px solid #6f42c1; padding: 2px 10px 0px 10px;">
   <strong style="color: #6f42c1">Troubleshooting:</strong> 
   
-`Fatal Error: Cannot open module file '*.mod' for reading at (1): No such file or directory compilation terminated.`
+  <code>Fatal Error: Cannot open module file '*.mod' for reading at (1): No such file or directory compilation terminated.</code>
 
-<em>Solution</em>: 
-* Search for `INCLUDE_MODULES = ` and add this line: 
-
-    `-I$(WRF_SRC_ROOT_DIR)/../mosaic -I$(WRF_SRC_ROOT_DIR)/../mosaic/datamodules \`
-
-* Search for `ENVCOMPDEFS     =` and add the flag:
-
-    `-DPMC_USE_MOSAIC_MULTI_OPT`
-
-* Search for `LIB_MOSAIC      =` and add the following:
-
-    `$(WRF_SRC_ROOT_DIR)/../mosaic/libmosaic.a`
+  <p><em>Solution</em>:</p>
+  <ul>
+    <li>Search for <code>INCLUDE_MODULES = </code> and add this line: 
+      <pre><code>-I$(WRF_SRC_ROOT_DIR)/../mosaic -I$(WRF_SRC_ROOT_DIR)/../mosaic/datamodules \</code></pre>
+    </li>
+    <li>Search for <code>ENVCOMPDEFS =</code> and add the flag:
+      <pre><code>-DPMC_USE_MOSAIC_MULTI_OPT</code></pre>
+    </li>
+    <li>Search for <code>LIB_MOSAIC =</code> and add the following:
+      <pre><code>$(WRF_SRC_ROOT_DIR)/../mosaic/libmosaic.a</code></pre>
+    </li>
+  </ul>
 </div>
 
