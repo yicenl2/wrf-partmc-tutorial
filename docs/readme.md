@@ -15,6 +15,9 @@ _**Program flow:**_
 ![](assets/img/anthro_emis.png)
 
 ## Contents
+
+<span style="font-size: 13px;">❗ _All content is specifically adapted for WRF-PartMC use only!_</span>
+
 * [Installation Guide](installation.md)
 * [WPS](wps.md)
 * [WRF](wrf.md)
@@ -22,4 +25,4 @@ _**Program flow:**_
 * [Preparing Emissions with SMOKE](smoke.md)
 * [WRF-PartMC](wrf-partmc.md)
 * [Troubleshooting](troubleshooting.md)
-* [Additional Resources](resources.md)
+* [Links & Resources](resources.md)

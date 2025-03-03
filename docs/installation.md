@@ -8,12 +8,14 @@
 
 | Tool        | Version  | Link  |
 |-------------|----------|----------------------------------------------------------------------------------|
-| WRF         | 3.9.1.1  | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
-| WRF-Chem    | 3.9.1    | [Website](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)         |
-| WPS         | 3.9.1+   | [GitHub](https://github.com/wrf-model/WPS)                                      |
-| MCIP        | 4.3+     | [GitHub](https://github.com/USEPA/CMAQ)                                         |
-| I/O API     | 3.2      | [Website](https://www.cmascenter.org/ioapi/)                                     |
-| WRF-PartMC  | 1.0      | [GitHub](https://github.com/open-atmos/wrf-partmc)                              |
+| WRF         | 3.9.1.1  | <div align="center">[🔗](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)</div> |
+| WRF-Chem    | 3.9.1    | <div align="center">[🔗](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)</div> |
+| WPS         | 3.9.1+   | <div align="center"><img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"></div> |
+| MCIP        | 4.3+     | <div align="center"><img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"></div> |
+| I/O API     | 3.2      | <div align="center">[🔗](https://www.cmascenter.org/ioapi/)</div> |
+| WRF-PartMC  | 1.0      | <div align="center"><img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"></div> |
+
+
 
 ## Contents
 - [WRF Installation Guide](#wrf-installation-guide)

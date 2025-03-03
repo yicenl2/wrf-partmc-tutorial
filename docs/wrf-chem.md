@@ -13,7 +13,7 @@ In this section, you will learn how to:
 The EPA_ANTHRO_EMIS tool allows the user to create WRF-Chem compatible hourly anthropogenic emission input files from Sparse Matrix Operator Kernel (SMOKE) Modeling System netcdf output.
 
 ### Preparation
-**1.** Download the [source code](https://www.acom.ucar.edu/wrf-chem/download.shtml) and [NEI input data](https://www2.acom.ucar.edu/wrf-chem/wrf-chem-tools-community).
+**1.** Download the [source code](https://www.acom.ucar.edu/wrf-chem/download.shtml) and [2014/2017 NEI input data](https://www2.acom.ucar.edu/wrf-chem/wrf-chem-tools-community).
 
 **2.** Build `anthro_emis` by executing the following commands:
 ```shell
