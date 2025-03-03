@@ -8,12 +8,12 @@
 
 | Tool        | Version  | Link  |
 |-------------|----------|----------------------------------------------------------------------------------|
-| WRF         | 3.9.1.1  | <div align="center">[🔗](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)</div> |
-| WRF-Chem    | 3.9.1    | <div align="center">[🔗](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html)</div> |
-| WPS         | 3.9.1+   | <div align="center"><img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"></div> |
-| MCIP        | 4.3+     | <div align="center"><img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"></div> |
-| I/O API     | 3.2      | <div align="center">[🔗](https://www.cmascenter.org/ioapi/)</div> |
-| WRF-PartMC  | 1.0      | <div align="center"><img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"></div> |
+| WRF         | 3.9.1.1  | [🔗](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html) |
+| WRF-Chem    | 3.9.1    | [🔗](https://www2.mmm.ucar.edu/wrf/users/download/get_sources.html) |
+| WPS         | 3.9.1+   | <img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"> |
+| MCIP        | 4.3+     | <img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"> |
+| I/O API     | 3.2      | [🔗](https://www.cmascenter.org/ioapi/) |
+| WRF-PartMC  | 1.0      | <img src="https://twenty-icons.com/github.com" alt="Logo" width="18" style="vertical-align: middle;"> |
 
 
 
