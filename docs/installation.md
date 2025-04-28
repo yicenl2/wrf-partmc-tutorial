@@ -67,7 +67,7 @@ tar -zxvf WRFV3-Chem-3.9.1.TAR.gz -C ./WRFV3/
 
 **8.** Compile the code.
 ```shell
-./compile em_real
+./compile em_real >& log.compile
 ```
 
 <div style="background-color: #eafaf1; border-left: 5px solid #4CAF50; padding: 5px 10px 5px 10px;">
